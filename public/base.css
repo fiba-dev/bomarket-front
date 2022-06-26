@@ -1,0 +1,15 @@
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	padding: 0;
+	margin: 0;
+}
+:root {
+	--fucsia: #e75a7c;
+	--azul: #4f7cac;
+	--celeste: #91e5f6;
+	--naranja: #edae49;
+	--azul-oscuro: #201e50;
+}
