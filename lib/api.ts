@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-const BASE_URL = "https://bomarket.vercel.app/api";
+const BASE_URL = "https://bomarket-backend.vercel.app/api";
 async function fetchApi(input: RequestInfo, options: any) {
 	const url = BASE_URL + input;
 	const token = localStorage.getItem("token");
