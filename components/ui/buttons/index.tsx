@@ -1,7 +1,5 @@
-import { getSaveitem } from "lib/api";
-import { useMe } from "lib/hooks";
 import styled, { css } from "styled-components";
-import { BodyBold, Subtitle, Title } from "../texts";
+import { Subtitle, Title } from "../texts";
 
 export const MainButton = styled.button`
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;

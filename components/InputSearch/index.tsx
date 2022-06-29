@@ -22,7 +22,7 @@ export function Buscar() {
 				placeholder="Encontra tu producto ideal"
 				{...register("q")}
 			></Placeholder>
-			<BotonAzul>Buscar</BotonAzul>
+			<BotonNaranja> Buscar </BotonNaranja>
 		</Root>
 	);
 }
@@ -46,7 +46,7 @@ export function BuscarOscuro() {
 				placeholder="Encontra tu producto ideal"
 				{...register("q")}
 			></Placeholder>
-			<BotonNaranja buscar>Buscar</BotonNaranja>
+			<BotonNaranja buscar> Buscar </BotonNaranja>
 		</RootOscuro>
 	);
 }

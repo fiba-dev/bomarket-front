@@ -1,10 +1,8 @@
-import styled from "styled-components";
-import { LogoPrincipal, MenuBurger } from "components/ui/logos";
-import { useState } from "react";
-import { MobileMenuWindows } from "components/mobilMenuWindows";
-
-import { useRouter } from "next/router";
 import { LoginDisplayAndButton } from "components/displayLogin";
+import { LogoPrincipal, MenuBurger } from "components/ui/logos";
+import { MobileMenuWindows } from "components/mobilMenuWindows";
+import styled from "styled-components";
+import { useState } from "react";
 
 const HeaderContainer = styled.div`
 	display: flex;
