@@ -1,14 +1,11 @@
-import { useRouter } from "next/router";
-import { useSearchProducts, useProducts, useFeaturedProducts } from "lib/hooks";
-import { Card, Item } from "components/ui/card";
-import { PageButton } from "components/ui/buttons";
 import { MostrarProductos, Root } from "./styled";
-import { Pagination } from "components/ui/pagination";
-import { Subtitle, Title } from "components/ui/texts";
+import { useFeaturedProducts } from "lib/hooks";
+import { Subtitle } from "components/ui/texts";
+import { Card } from "components/ui/card";
+import { useRouter } from "next/router";
 
 export function FeaturedProducts() {
 	const router = useRouter();
-	const itemId = router.query;
 	const product = useFeaturedProducts();
 
 	if (product) {

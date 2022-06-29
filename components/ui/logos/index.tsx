@@ -1,29 +1,33 @@
 import { Body, Subtitle } from "../texts";
-import styled from "styled-components";
 import { useRouter } from "next/router";
+import styled from "styled-components";
+
 const ContainerRedes = styled.a`
-	display: flex;
-	flex-direction: row;
 	text-decoration: none;
+	flex-direction: row;
+	display: flex;
 	p {
 		:hover {
 			color: var(--fucsia);
 		}
 	}
 `;
+
 const ContainerLogo = styled.div`
-	display: flex;
-	width: 207px;
-	height: 46px;
 	justify-content: space-between;
 	align-items: center;
 	cursor: pointer;
+	display: flex;
+	height: 46px;
+	width: 207px;
+
 	h2 {
 		:hover {
 			color: var(--fucsia);
 		}
 	}
 `;
+
 const Burger = styled.div`
 	:hover {
 		rect {
@@ -36,6 +40,7 @@ const Burger = styled.div`
 		display: none;
 	}
 `;
+
 export function MenuBurger(props: any) {
 	return (
 		<Burger>
@@ -47,6 +52,7 @@ export function MenuBurger(props: any) {
 		</Burger>
 	);
 }
+
 export function Twitter() {
 	return (
 		<svg
@@ -67,6 +73,7 @@ export function Twitter() {
 		</svg>
 	);
 }
+
 export function TwitterLogo() {
 	const router = useRouter();
 	return (
@@ -79,6 +86,7 @@ export function TwitterLogo() {
 		</ContainerRedes>
 	);
 }
+
 export function Instagram() {
 	return (
 		<svg
@@ -112,6 +120,7 @@ export function Instagram() {
 		</svg>
 	);
 }
+
 export function InstagramLogo() {
 	return (
 		<ContainerRedes
@@ -122,6 +131,7 @@ export function InstagramLogo() {
 		</ContainerRedes>
 	);
 }
+
 export function CartLogo() {
 	return (
 		<svg
@@ -159,6 +169,7 @@ export function CartLogo() {
 		</svg>
 	);
 }
+
 export function LogoPrincipal() {
 	const router = useRouter();
 	return (
@@ -172,3 +183,4 @@ export function LogoPrincipal() {
 		</ContainerLogo>
 	);
 }
+
