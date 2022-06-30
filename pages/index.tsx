@@ -4,9 +4,11 @@ import { Buscar } from "components/InputSearch";
 import { Footer } from "components/footer";
 import { Header } from "components/header";
 import type { NextPage } from "next";
+import React from "react";
 import { Title } from "ui/texts";
 
 const Home: NextPage = () => {
+
 	return (
 		<Root>
 			<Header></Header>
