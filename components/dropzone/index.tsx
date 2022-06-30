@@ -1,13 +1,6 @@
 import React, {useCallback, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
-
-const dropzoneStyle = {
-    "flex-direction": "column",
-    alignItems: "center",
-    cursor: "pointer",
-    marginBottom: 30,
-    display: "flex",
-}
+import { DropzoneDiv } from './styled';
 
 export function MyDropzone(props: any) {
 
@@ -30,9 +23,9 @@ export function MyDropzone(props: any) {
 
     const {getRootProps, getInputProps} = useDropzone({onDrop})
 
-    return <div style={dropzoneStyle} {...getRootProps()}>
+    return <DropzoneDiv {...getRootProps()}>
         <input {...getInputProps()} />
-        <p style={{ alignSelf: "center", maxWidth: 350 }}> Drag and drop some files here, or click *here* to select files </p>
+        <p className='text'> Drag and drop some files here, or click *here* to select files </p>
         { img ? <img  src={img} alt="image" style={{ maxWidth: 300, maxHeight: 250 }} /> : <p> </p> }
-    </div>
+    </DropzoneDiv>
 }

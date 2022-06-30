@@ -19,6 +19,12 @@ export const FormProd = styled.form`
         width: 350px;
     }
 
+    @media(min-width: 1080px) {
+        .container {
+            width: 450px;
+        }
+    }
+
     .error-style {
         flex-direction: column;
         margin-bottom: 25px;

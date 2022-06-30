@@ -1,10 +1,10 @@
-import React, { useState } from "react";
 import { MyDropzone } from "components/dropzone";
 import { BodyBold, Subtitle } from "ui/texts";
 import { Placeholder } from "ui/textFields";
 import { BotonNaranja } from "ui/buttons";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import React, { useState } from "react";
 import { FormProd } from "./styled";
 import swal from 'sweetalert';
 
