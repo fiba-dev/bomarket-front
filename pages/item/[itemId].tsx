@@ -1,9 +1,8 @@
-import { Footer } from "components/footer";
-import { Header } from "components/header";
 import { HeaderSearch } from "components/headerSearch";
-import { ShowItem } from "components/showItem";
-import type { NextPage } from "next";
 import Root, { ContainerProduct } from "./styled";
+import { ShowItem } from "components/showItem";
+import { Footer } from "components/footer";
+import type { NextPage } from "next";
 
 const Home: NextPage = () => {
 	return (
