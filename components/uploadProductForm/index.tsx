@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MyDropzone } from "components/dropzone";
 import { BodyBold, Subtitle } from "ui/texts";
 import { Placeholder } from "ui/textFields";
@@ -8,20 +8,13 @@ import { useRouter } from "next/router";
 import { FormProd } from "./styled";
 import swal from 'sweetalert';
 
-const errorStyle = {
-    "flex-direction": "column",
-    "alignS-slf": "center",
-    "margin-bottom": 20,
-    display: "flex",
-    color: "red",
-}
 
 export function UploadProduct() {
 
     const router = useRouter();
     const [ image, setImage ] = useState(null as any);
     const { register, handleSubmit, formState: { errors } } = useForm();
-    
+
     const getImage = (img: any) => {
         setImage(img);
     }
