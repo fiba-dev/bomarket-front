@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { Root } from "./styled";
 
-import { Large, Subtitle, Title } from "components/ui/texts";
+import { Large, Subtitle, Title } from "ui/texts";
 import { getOrder } from "lib/hooks";
 
 export function ThanksWindows() {
@@ -23,10 +23,10 @@ export function ThanksWindows() {
 		status == "closed"
 			? "FUE EXITOSO"
 			: status == "opened"
-			? " ESTA PENDIENTE"
-			: status == "expired"
-			? "FUE RECHAZADO"
-			: "ESTA PROCESANDO";
+				? " ESTA PENDIENTE"
+				: status == "expired"
+					? "FUE RECHAZADO"
+					: "ESTA PROCESANDO";
 
 	return (
 		<Root>

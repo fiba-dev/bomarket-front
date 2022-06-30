@@ -1,7 +1,7 @@
 import { MostrarProductos, Root } from "./styled";
 import { useFeaturedProducts } from "lib/hooks";
-import { Subtitle } from "components/ui/texts";
-import { Card } from "components/ui/card";
+import { Subtitle } from "ui/texts";
+import { Card } from "ui/card";
 import { useRouter } from "next/router";
 
 export function FeaturedProducts() {

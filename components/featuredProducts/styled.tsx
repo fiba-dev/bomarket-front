@@ -8,6 +8,7 @@ export const MostrarProductos = styled.div`
 	margin-top: 20px;
 	width: 100%;
 	padding-top: 40px;
+	gap: 20px;
 	@media (min-width: 1080px) {
 		justify-content: space-evenly;
 		flex-direction: row;
@@ -21,9 +22,7 @@ export const Root = styled.div`
 	width: 100%;
 	height: 100%;
 	min-height: 800px;
-	background-color: var(--fucsia);
+	background-color: #f7f7f7;
 	justify-content: center;
-	@media (min-width: 1080px) {
-		background-color: var(--celeste);
-	}
+	padding-bottom: 20px;
 `;

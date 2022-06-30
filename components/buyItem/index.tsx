@@ -1,11 +1,11 @@
 import { useRouter } from "next/router";
 import { useProducts, createOrder, useMe } from "lib/hooks";
-import { BuyItemCard } from "components/ui/card";
+import { BuyItemCard } from "ui/card";
 import { useForm } from "react-hook-form";
 import { ErrorMessage, MostrarProductos, Root, RootTotal } from "./styled";
-import { Subtitle, Title } from "components/ui/texts";
-import { Placeholder } from "components/ui/textFields";
-import { BotonCeleste } from "components/ui/buttons";
+import { Subtitle, Title } from "ui/texts";
+import { Placeholder } from "ui/textFields";
+import { BotonCeleste } from "ui/buttons";
 
 export function BuyItem() {
 	const {

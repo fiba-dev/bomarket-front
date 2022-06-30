@@ -1,4 +1,4 @@
-import { LogoPrincipal, MenuBurger } from "components/ui/logos";
+import { LogoPrincipal, MenuBurger } from "ui/logos";
 import { useState } from "react";
 import { MobileMenuWindows } from "components/mobilMenuWindows";
 import { BuscarOscuro } from "components/InputSearch";

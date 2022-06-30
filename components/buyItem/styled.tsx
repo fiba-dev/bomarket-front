@@ -1,4 +1,4 @@
-import { Title } from "components/ui/texts";
+import { Title } from "ui/texts";
 import styled from "styled-components";
 
 export const MostrarProductos = styled.div`

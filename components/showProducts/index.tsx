@@ -1,10 +1,10 @@
 import { useRouter } from "next/router";
 import { useSearchProducts } from "lib/hooks";
-import { Card } from "components/ui/card";
-import { PageButton } from "components/ui/buttons";
+import { Card } from "ui/card";
+import { PageButton } from "ui/buttons";
 import { MostrarProductos, Root } from "./styled";
-import { Pagination } from "components/ui/pagination";
-import { Subtitle } from "components/ui/texts";
+import { Pagination } from "ui/pagination";
+import { Subtitle } from "ui/texts";
 
 export function ShowProducts() {
 	const router = useRouter();

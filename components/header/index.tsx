@@ -1,5 +1,5 @@
 import { LoginDisplayAndButton } from "components/displayLogin";
-import { LogoPrincipal, MenuBurger } from "components/ui/logos";
+import { LogoPrincipal, MenuBurger } from "ui/logos";
 import { MobileMenuWindows } from "components/mobilMenuWindows";
 import styled from "styled-components";
 import { useState } from "react";

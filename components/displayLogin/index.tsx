@@ -1,5 +1,5 @@
-import { BotonFucsia } from "../ui/buttons";
-import { Body, Large } from "../ui/texts";
+import { BotonFucsia } from "../../ui/buttons";
+import { Body, Large } from "../../ui/texts";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { useMe } from "lib/hooks";
@@ -80,8 +80,8 @@ export function LoginDisplayAndButton() {
 		return (
 			<DisplayLoginDesktop>
 				<h3 style={{ color: "#FEFEFE", marginRight: 10, cursor: "pointer" }} onClick={() => {
-						router.push("/signin");
-					}}>
+					router.push("/signin");
+				}}>
 					Ingresar
 				</h3>
 			</DisplayLoginDesktop>

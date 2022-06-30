@@ -1,5 +1,5 @@
-import { InstagramLogo, TwitterLogo } from "components/ui/logos";
-import { Body, Large } from "components/ui/texts";
+import { InstagramLogo, TwitterLogo } from "ui/logos";
+import { Body, Large } from "ui/texts";
 import { Root, RootLinks, RootMenu, RootRedes } from "components/footer/styled";
 import { useRouter } from "next/router";
 import { useMe } from "lib/hooks";

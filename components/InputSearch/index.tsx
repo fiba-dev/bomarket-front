@@ -1,5 +1,5 @@
-import { BotonAzul, BotonNaranja } from "components/ui/buttons";
-import { Placeholder } from "components/ui/textFields";
+import { BotonAzul, BotonNaranja } from "ui/buttons";
+import { Placeholder } from "ui/textFields";
 import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { Root, RootOscuro } from "./styled";
