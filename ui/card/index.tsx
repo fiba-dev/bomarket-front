@@ -1,12 +1,11 @@
 import Image from "next/image";
 import styled from "styled-components";
-import { Body, Large, Subtitle, Title } from "components/ui/texts";
+import { Body, BodyBold, Large, LargeBold, Subtitle, Title } from "ui/texts";
 import { BotonCeleste } from "../buttons";
 
 const CardContainer = styled.div`
 	display: flex;
 	flex-direction: column;
-	background-color: var(--fucsia);
 	width: 315px;
 	height: 321px;
 	border: solid 4px;
@@ -19,10 +18,52 @@ const CardContainer = styled.div`
 `;
 const CardInfo = styled.div`
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	justify-content: space-around;
 	align-items: center;
 `;
+
+export const Root = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  padding: 15px;
+	background-color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+    0 0 0 1px rgb(10 10 10 / 2%);
+  :hover {
+    box-shadow: 0px 0px 38px 0px rgb(41 44 58 / 15%);
+  }
+`;
+
+export const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-top: 8px;
+`;
+
+export const Media: any = styled.div`
+  background-image: url(${(props: any) => props.src};);
+  min-width: 160px;
+  height: 270px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+
+export function Card({ imagen = "", precio = "", nombre = "", onClick }: any) {
+	return (
+		<Root style={{ cursor: "pointer" }} onClick={onClick}>
+			<Media src={imagen}></Media>
+			<Info>
+				<LargeBold>{nombre}</LargeBold>
+				<Large>$ {precio}</Large>
+			</Info>
+		</Root>
+	);
+}
 
 const ItemContainer = styled.div`
 	display: flex;
@@ -92,17 +133,6 @@ const BuyItemContainer = styled.div`
 		height: 384px;
 	}
 `;
-export function Card({ imagen = "", precio = "", nombre = "", onClick }: any) {
-	return (
-		<CardContainer onClick={onClick}>
-			<Image alt="Card Imagen" src={imagen} width={328} height={237} />
-			<CardInfo>
-				<Large>{nombre}</Large>
-				<Subtitle>{precio} Bs.</Subtitle>
-			</CardInfo>
-		</CardContainer>
-	);
-}
 
 export function Item({
 	imagen = "",

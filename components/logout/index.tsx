@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import router from "next/router";
 import { Root } from "./styled";
-import { Title } from "components/ui/texts";
+import { Title } from "ui/texts";
 import { getSaveitem, removeItem } from "lib/api";
 import { refreshPage } from "lib/hooks";
 

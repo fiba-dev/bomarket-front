@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { BotonCerrarMobil, BotonMobil } from "components/ui/buttons";
+import { BotonCerrarMobil, BotonMobil } from "ui/buttons";
 
 import { useRouter } from "next/router";
 

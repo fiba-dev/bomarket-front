@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
 export const MostrarProductos = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	margin-top: 20px;
+
+	gap: 30px;
 	width: 100%;
-	padding-top: 40px;
-	@media (min-width: 1080px) {
-		justify-content: space-evenly;
-		flex-direction: row;
-	}
+	display: grid;
+    align-items: center;
+    justify-items: center;
+	padding: 40px 0 40px 0;
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
 `;
+
 export const Root = styled.div`
 	padding-top: 60px;
 	display: flex;
@@ -21,9 +19,7 @@ export const Root = styled.div`
 	width: 100%;
 	height: 100%;
 	min-height: 800px;
-	background-color: var(--fucsia);
+	background-color: #f7f7f7;
 	justify-content: center;
-	@media (min-width: 1080px) {
-		background-color: var(--celeste);
-	}
+	padding-bottom: 20px;
 `;

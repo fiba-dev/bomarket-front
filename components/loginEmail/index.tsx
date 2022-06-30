@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { sendCode, getToken } from "lib/api";
 import router from "next/router";
-import { Placeholder } from "components/ui/textFields";
+import { Placeholder } from "ui/textFields";
 import { Root, RootCode } from "./styled";
 import { useForm } from "react-hook-form";
-import { BotonNaranja } from "components/ui/buttons";
-import { Body, Subtitle } from "components/ui/texts";
+import { BotonNaranja } from "ui/buttons";
+import { Body, Subtitle } from "ui/texts";
 
 export function Login() {
 	const {
