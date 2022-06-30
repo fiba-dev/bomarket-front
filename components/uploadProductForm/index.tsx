@@ -21,7 +21,7 @@ export function UploadProduct() {
 
     const onSubmit = (data: any) => {
         console.log({ data, image });
-        image ? swal({ title: "Yes!", text: "Se puede ejecutar", icon: "success" }) : swal({ title: "Upss...", text: "La imagen es requerida", icon: "error" });
+        image ? swal({ title: "Yes!", text: "Se puede ejecutar!", icon: "success" }) : swal({ title: "Upss...", text: "La imagen es requerida", icon: "error" });
     }
 
     return <FormProd onSubmit={handleSubmit(onSubmit) }>
