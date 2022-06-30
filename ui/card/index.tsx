@@ -55,20 +55,13 @@ export const Media: any = styled.div`
 
 export function Card({ imagen = "", precio = "", nombre = "", onClick }: any) {
 	return (
-		<Root onClick={onClick}>
+		<Root style={{ cursor: "pointer" }} onClick={onClick}>
 			<Media src={imagen}></Media>
 			<Info>
 				<LargeBold>{nombre}</LargeBold>
 				<Large>$ {precio}</Large>
 			</Info>
 		</Root>
-		// <CardContainer onClick={onClick}>
-		// 	<Image alt="Card Imagen" src={imagen} width={328} height={237} />
-		// 	<CardInfo>
-		// 		<LargeBold>{nombre}</LargeBold>
-		// 		<Large>{precio} Bs.</Large>
-		// 	</CardInfo>
-		// </CardContainer>
 	);
 }
 

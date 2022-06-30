@@ -1,11 +1,10 @@
 import { FeaturedProducts } from "components/featuredProducts";
-import backImg from "../components/ui/logos/pic.jpg";
 import Root, { ContainerProduct } from "./styled";
 import { Buscar } from "components/InputSearch";
-import { Title } from "ui/texts";
 import { Footer } from "components/footer";
 import { Header } from "components/header";
 import type { NextPage } from "next";
+import { Title } from "ui/texts";
 
 const Home: NextPage = () => {
 	return (
