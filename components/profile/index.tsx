@@ -39,19 +39,19 @@ export function Profile() {
 				<Body>Estos son los datos guardados en su perfil</Body>
 				<Placeholder
 					profile="true"
-					placeholder={"Nombre: " + `${name}`}
+					placeholder={"Nombre: " + `${name ? name : "Sin informacíon"}`}
 					type="text"
 					{...register("name")}
 				></Placeholder>
 				<Placeholder
 					profile="true"
-					placeholder={"Dirección: " + `${direccion}`}
+					placeholder={"Dirección: " + `${direccion ? direccion : "Sin informacíon"}`}
 					type="text"
 					{...register("direccion")}
 				></Placeholder>
 				<Placeholder
 					profile="true"
-					placeholder={"Telefono: " + `${telefono}`}
+					placeholder={"Telefono: " + `${telefono ? telefono : "Sin informacíon"}`}
 					type="tel"
 					{...register("phone")}
 				></Placeholder>

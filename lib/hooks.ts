@@ -9,6 +9,7 @@ export function useMe() {
 export function refreshPage() {
 	window.location.reload();
 }
+
 export async function editMe({ nombre, direccion, telefono }: any) {
 	return await fetchApi("/me", {
 		method: "PATCH",
