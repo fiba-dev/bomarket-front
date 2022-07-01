@@ -5,7 +5,7 @@ import { Placeholder, Textarea } from "ui/textFields";
 import { Form, Root, UserPhoto } from "./styled";
 import { useForm } from "react-hook-form";
 import { BotonNaranja } from "ui/buttons";
-import { Body, Subtitle, Title } from "ui/texts";
+import { Body, Large, Subtitle, Title } from "ui/texts";
 import { MyDropzone } from "components/dropzone";
 
 export function Profile() {
@@ -49,7 +49,7 @@ export function Profile() {
 			<Root>
 				<Subtitle>Perfil</Subtitle>
 				<UserPhoto src={userPhoto} ></UserPhoto>
-				<Body>Estos son los datos guardados en su perfil</Body>
+				<Large>{user.email}</Large>
 				<Form onSubmit={handleSubmit(handlerUserForm)}>
 					<Placeholder
 						profile="true"

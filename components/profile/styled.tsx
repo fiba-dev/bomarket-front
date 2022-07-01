@@ -11,6 +11,7 @@ export const Form = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	margin-top:20px;
 `;
 
 export const UserPhoto: any = styled.div`
