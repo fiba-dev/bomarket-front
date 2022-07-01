@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMe, editMe } from "lib/hooks";
 import router from "next/router";
-import { Placeholder } from "ui/textFields";
-import { Root } from "./styled";
+import { Placeholder, Textarea } from "ui/textFields";
+import { Form, Root, UserPhoto } from "./styled";
 import { useForm } from "react-hook-form";
 import { BotonNaranja } from "ui/buttons";
-import { Body, Subtitle } from "ui/texts";
+import { Body, Subtitle, Title } from "ui/texts";
+import { MyDropzone } from "components/dropzone";
 
 export function Profile() {
 	const {
@@ -13,14 +14,24 @@ export function Profile() {
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
+
 	let user = useMe();
 
-	async function handlerUserForm(e: any) {
-		const nombre = e.name ? e.name : user.nombre;
-		const direccion = e.direccion ? e.direccion : user.direccion;
-		const telefono = e.phone ? e.phone : user.telefono;
+	const [image, setImage] = useState(null as any);
 
-		let res = await editMe({ nombre, direccion, telefono });
+	const getImage = (img: any) => {
+		setImage(img);
+	}
+
+	async function handlerUserForm(e: any) {
+		const name = e.name ? e.name : user.name;
+		const adress = e.adress ? e.adress : user.adress;
+		const phone = e.phone ? e.phone : user.phone;
+		const description = e.description ? e.description : user.description;
+
+
+
+		let res = await editMe({ name, adress, phone: parseInt(phone), photo: image, description });
 
 		if (res == true) {
 			window.alert("MODIFICADO CON EXITO");
@@ -29,60 +40,71 @@ export function Profile() {
 			window.alert("NO SE PUDO MODIFICAR EL USUARIO");
 		}
 	}
-	if (user) {
-		const name = user.nombre;
-		const telefono = user.telefono;
-		const direccion = user.direccion;
-		return (
-			<Root onSubmit={handleSubmit(handlerUserForm)}>
-				<Subtitle>Perfil</Subtitle>
-				<Body>Estos son los datos guardados en su perfil</Body>
-				<Placeholder
-					profile="true"
-					placeholder={"Nombre: " + `${name ? name : "Sin informacíon"}`}
-					type="text"
-					{...register("name")}
-				></Placeholder>
-				<Placeholder
-					profile="true"
-					placeholder={"Dirección: " + `${direccion ? direccion : "Sin informacíon"}`}
-					type="text"
-					{...register("direccion")}
-				></Placeholder>
-				<Placeholder
-					profile="true"
-					placeholder={"Telefono: " + `${telefono ? telefono : "Sin informacíon"}`}
-					type="tel"
-					{...register("phone")}
-				></Placeholder>
 
-				<BotonNaranja profile="true">Guardar</BotonNaranja>
-			</Root>
-		);
-	} else {
+	if (user) {
+		const { name, phone, adress, description } = user
+		let userPhoto = user.photo ? user.photo.secure_url : "https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg"
+
 		return (
-			<div>
-				<Root onSubmit={handleSubmit(handlerUserForm)}>
-					<Subtitle>Perfil</Subtitle>
+			<Root>
+				<Subtitle>Perfil</Subtitle>
+				<UserPhoto src={userPhoto} ></UserPhoto>
+				<Body>Estos son los datos guardados en su perfil</Body>
+				<Form onSubmit={handleSubmit(handlerUserForm)}>
 					<Placeholder
-						placeholder="Nombre"
+						profile="true"
+						placeholder={"Nombre: " + `${name ? name : "Sin informacíon"}`}
 						type="text"
 						{...register("name")}
 					></Placeholder>
 					<Placeholder
-						placeholder="Direccion"
+						profile="true"
+						placeholder={"Dirección: " + `${adress ? adress : "Sin informacíon"}`}
 						type="text"
-						{...register("direccion")}
+						{...register("adress")}
 					></Placeholder>
 					<Placeholder
-						placeholder="Telefono"
+						profile="true"
+						placeholder={"Telefono: " + `${phone ? phone : "Sin informacíon"}`}
 						type="tel"
 						{...register("phone")}
 					></Placeholder>
-
-					<BotonNaranja profile="true">Guardar</BotonNaranja>
-				</Root>
-			</div>
+					<MyDropzone img={getImage}></MyDropzone>
+					<Textarea
+						profile="true"
+						placeholder={"Descripción: " + `${description ? description : "Sin informacíon"}`}
+						{...register("description")}
+					></Textarea>
+					<BotonNaranja profile="true" >Guardar</BotonNaranja>
+				</Form>
+			</Root>
 		);
+	} else {
+		return <Title>Cargando ...</Title>
+		// return (
+		// 	<div>
+		// 		<Root onSubmit={handleSubmit(handlerUserForm)}>
+		// 			<Subtitle>Perfil</Subtitle>
+		// 			<Placeholder
+		// 				placeholder="Nombre"
+		// 				type="text"
+		// 				{...register("name")}
+		// 			></Placeholder>
+		// 			<Placeholder
+		// 				placeholder="Direccion"
+		// 				type="text"
+		// 				{...register("direccion")}
+		// 			></Placeholder>
+		// 			<Placeholder
+		// 				placeholder="Telefono"
+		// 				type="tel"
+		// 				{...register("phone")}
+		// 			></Placeholder>
+
+
+		// 			<BotonNaranja profile="true">Guardar</BotonNaranja>
+		// 		</Root>
+		// 	</div>
+		// );
 	}
 }

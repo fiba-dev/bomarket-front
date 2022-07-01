@@ -1,18 +1,16 @@
-import { Footer } from "components/footer";
-import { Header } from "components/header";
 import { HeaderSearch } from "components/headerSearch";
+import Root, { ContainerProfile } from "./styled";
 import { Profile } from "components/profile";
+import { Footer } from "components/footer";
 import type { NextPage } from "next";
-import Root, { ContainerProduct } from "./styled";
 
 const Home: NextPage = () => {
 	return (
 		<Root>
 			<HeaderSearch></HeaderSearch>
-			<ContainerProduct>
+			<ContainerProfile>
 				<Profile />
-			</ContainerProduct>
-
+			</ContainerProfile>
 			<Footer></Footer>
 		</Root>
 	);
