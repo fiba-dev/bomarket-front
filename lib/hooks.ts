@@ -62,16 +62,24 @@ export function useFeaturedProducts(
 export async function createOrder(productId: any, quantity: number) {
   return productId
     ? await fetchApi("/order?productId=" + productId, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: { quantity },
-      })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: { quantity },
+    })
     : false;
 }
 export async function getOrder(externalReference: any) {
   return externalReference
     ? await fetchApi("/order/" + externalReference, {
-        headers: { "Content-Type": "application/json" },
-      })
+      headers: { "Content-Type": "application/json" },
+    })
     : false;
+}
+
+export async function useGetUserCatalog(userId: string) {
+
+  return userId ? await fetchApi(`/catalogue?q=${userId}&offset=0&limit=10`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+  }) : false;
 }

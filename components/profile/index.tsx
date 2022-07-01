@@ -46,65 +46,41 @@ export function Profile() {
 		let userPhoto = user.photo ? user.photo.secure_url : "https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg"
 
 		return (
-			<Root>
-				<Subtitle>Perfil</Subtitle>
+			<Root style={{ marginTop: 50, marginBottom: 50 }}>
+				<Subtitle> Perfil </Subtitle>
 				<UserPhoto src={userPhoto} ></UserPhoto>
-				<Large>{user.email}</Large>
+				<Large> {user.email} </Large>
 				<Form onSubmit={handleSubmit(handlerUserForm)}>
 					<Placeholder
 						profile="true"
-						placeholder={"Nombre: " + `${name ? name : "Sin informacíon"}`}
+						placeholder={"Nombre: " + `${name ? name : "Sin información"}`}
 						type="text"
 						{...register("name")}
 					></Placeholder>
 					<Placeholder
 						profile="true"
-						placeholder={"Dirección: " + `${adress ? adress : "Sin informacíon"}`}
+						placeholder={"Dirección: " + `${adress ? adress : "Sin información"}`}
 						type="text"
 						{...register("adress")}
 					></Placeholder>
 					<Placeholder
 						profile="true"
-						placeholder={"Telefono: " + `${phone ? phone : "Sin informacíon"}`}
+						placeholder={"Telefono: " + `${phone ? phone : "Sin información"}`}
 						type="tel"
 						{...register("phone")}
 					></Placeholder>
 					<MyDropzone img={getImage}></MyDropzone>
 					<Textarea
 						profile="true"
-						placeholder={"Descripción: " + `${description ? description : "Sin informacíon"}`}
+						placeholder={"Descripción: " + `${description ? description : "Sin información"}`}
 						{...register("description")}
 					></Textarea>
 					<BotonNaranja profile="true" >Guardar</BotonNaranja>
 				</Form>
 			</Root>
 		);
+
 	} else {
 		return <Title>Cargando ...</Title>
-		// return (
-		// 	<div>
-		// 		<Root onSubmit={handleSubmit(handlerUserForm)}>
-		// 			<Subtitle>Perfil</Subtitle>
-		// 			<Placeholder
-		// 				placeholder="Nombre"
-		// 				type="text"
-		// 				{...register("name")}
-		// 			></Placeholder>
-		// 			<Placeholder
-		// 				placeholder="Direccion"
-		// 				type="text"
-		// 				{...register("direccion")}
-		// 			></Placeholder>
-		// 			<Placeholder
-		// 				placeholder="Telefono"
-		// 				type="tel"
-		// 				{...register("phone")}
-		// 			></Placeholder>
-
-
-		// 			<BotonNaranja profile="true">Guardar</BotonNaranja>
-		// 		</Root>
-		// 	</div>
-		// );
 	}
 }

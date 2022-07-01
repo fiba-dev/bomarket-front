@@ -13,6 +13,7 @@ export const MostrarProductos = styled.div`
 		width: 800px;
 	}
 `;
+
 export const Root = styled.div`
 	display: flex;
 	flex-direction: column;
