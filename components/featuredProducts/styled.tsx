@@ -10,7 +10,7 @@ export const MostrarProductos = styled.div`
 	padding: 40px 0 40px 0;
     grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
 
-	@media(min-width: 1200px) {
+	@media(min-width: 1390px) {
 		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 	}
 `;
