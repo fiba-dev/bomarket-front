@@ -19,7 +19,7 @@ export function ShowCatalogue() {
 
 	useEffect(() => {
 		catalogueOfUser();
-	}, []);
+	}, [query]);
 
 	function VerMenos() {
 		const q: any = router.query;

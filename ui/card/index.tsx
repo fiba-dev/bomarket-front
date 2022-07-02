@@ -1,35 +1,34 @@
 import Image from "next/image";
+import { Body, Large, LargeBold, Subtitle, Title } from "ui/texts";
 import styled from "styled-components";
-import { Body, BodyBold, Large, LargeBold, Subtitle, Title } from "ui/texts";
-import { BotonCeleste } from "../buttons";
 
 export const Root = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  padding: 15px;
 	background-color: #fff;
-  border-radius: 0.25rem;
-  box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
+	flex-direction: column;
+	border-radius: 0.25rem;
+	display: flex;
+	padding: 15px;
+	width: 300px;
+	box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%),
     0 0 0 1px rgb(10 10 10 / 2%);
-  :hover {
-    box-shadow: 0px 0px 38px 0px rgb(41 44 58 / 15%);
-  }
+	:hover {
+		box-shadow: 0px 0px 38px 0px rgb(41 44 58 / 15%);
+	}
 `;
 
 export const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding-top: 8px;
+	flex-direction: column;
+	padding-top: 8px;
+	display: flex;
 `;
 
 export const Media: any = styled.div`
-  background-image: url(${(props: any) => props.src};);
-  min-width: 160px;
-  height: 270px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+	background-image: url(${(props: any) => props.src};);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	height: 300px;
+	width: 280px;
 `;
 
 
@@ -63,9 +62,14 @@ export const ItemMedia: any = styled.div`
 	background-image: url(${(props: any) => props.src};);
 	background-position: center;
 	background-size: cover;
-	min-width: 300px;
-	min-width: 400px;
-	height: 500px;
+	margin-bottom: 30px;
+	height: 300px;
+	width: 280px;
+
+	@media(min-width: 650px) {
+		min-height: 350px;
+		width: 400px;
+	}
 `;
 
 const ItemInfo = styled.div`
