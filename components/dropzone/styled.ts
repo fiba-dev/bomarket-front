@@ -6,16 +6,16 @@ export const DropzoneDiv = styled.div`
     align-items: center;
     cursor: pointer;
     display: flex;
-
+    
     .text {
-        align-self: "center";
+        border: 2px dotted;
+        padding: 5px;
         width: 350px;
     }
 
     @media(min-width: 1080px) {
         .text {
             width: 450px;
-            margin-left: 25px;
         }
     }
 `
