@@ -15,11 +15,12 @@ export const Form = styled.form`
 `;
 
 export const UserPhoto: any = styled.div`
-	border-radius: 50%;
-	width: 200px;
-	height: 200px;
+	background-image: url(${(props: any) => props.src});
 	background-position: center;
 	background-size: cover;
+	border-radius: 50%;
+	border: solid 1px;
 	margin: 20px 0;
-	background-image: url(${(props: any) => props.src};);
+	height: 200px;
+	width: 200px;
 `

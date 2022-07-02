@@ -7,11 +7,12 @@ export const Label = styled.label`
 	margin-left: 5px;
 `;
 export const Placeholder = styled.input<{ profile?: any }>`
-	height: 37px;
-	min-width: 350px;
-	border: solid 3px;
 	border-radius: 8px;
+	border: solid 3px;
+	min-width: 350px;
+	height: 37px;
 	margin: 5px;
+
 	::placeholder {
 		color: gray;
 	}
@@ -25,12 +26,14 @@ export const Placeholder = styled.input<{ profile?: any }>`
 	}
 `;
 export const Textarea = styled.textarea<{ profile?: any }>`
-	height: 70px;
-	min-width: 350px;
-	border: solid 3px;
 	border-radius: 8px;
-	margin: 5px;
+	margin-bottom: 8px;
+	border: solid 3px;
+	min-width: 350px;
+	height: 70px;
 	resize: none;
+	padding: 8px;
+
 	::placeholder {
 		color: gray;
 	}

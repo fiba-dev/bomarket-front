@@ -14,6 +14,7 @@ export function ShowCatalogue() {
 
 	const catalogueOfUser = async () => {
 		const catalogue = await getUserCatalogue((query.userId as string));
+		console.log(catalogue);
 		await setUserCatalogue(catalogue);
 	}
 
@@ -31,7 +32,7 @@ export function ShowCatalogue() {
 			let offsetString = offset.toString();
 			let limitString = limit.toString();
 			router.push(
-				"/search?q=" + q.q + "&offset=" + offsetString + "&limit=" + limitString
+				"/catalogue?UserId=" + q.q + "&offset=" + offsetString + "&limit=" + limitString
 			);
 		}
 	}
@@ -49,17 +50,18 @@ export function ShowCatalogue() {
 			const offsetString = offset.toString();
 			const limitString = limit.toString();
 			router.push(
-				"/search?q=" + q.q + "&offset=" + offsetString + "&limit=" + limitString
+				"/catalogue?UserId=" + q.q + "&offset=" + offsetString + "&limit=" + limitString
 			);
 		}
 	}
 
 	if (userCatalogue) {
-		const results =
-		userCatalogue.results.length == 0 ? "No se encontraron Resultados" : "";
+		const results = userCatalogue.results.length == 0 ? "No se encontraron Resultados" : "";
+
 		let limit = query.limit ? parseInt(query.limit.toString()) : 5;
 		let offset = query.offset ? parseInt(query.offset.toString()) : 5;
-		const paginaActual = userCatalogue.results.length == 0 ? "" : offset / 5 + 1;
+
+		const paginaActual = userCatalogue.results.length == 0 ? "" : offset / 5;
 		let verMas =
 			userCatalogue.results.length > 0
 				? offset >= userCatalogue.pagination.total - 5
@@ -67,6 +69,7 @@ export function ShowCatalogue() {
 					: "Pagina Siguiente"
 				: "    ";
 		const verMenos = query.offset == (0).toString() ? "   " : "Pagina Anterior";
+
 		return (
 			<Root>
 				<Subtitle> {results} </Subtitle>{" "}
