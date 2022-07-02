@@ -1,15 +1,18 @@
+import { MostrarProductos, CatalogueLink } from "./styled";
+import { WhatsappButton } from "ui/buttons";
+import { useProducts } from "lib/hooks";
 import { useRouter } from "next/router";
-import { useSearchProducts, useProducts } from "lib/hooks";
-import { Card, Item } from "ui/card";
-import { PageButton } from "ui/buttons";
-import { MostrarProductos } from "./styled";
-import { Pagination } from "ui/pagination";
-import { Subtitle } from "ui/texts";
+import { Item } from "ui/card";
 
 export function ShowItem() {
 	const router = useRouter();
 	const itemId = router.query;
 	const product = useProducts(itemId.itemId);
+
+	function goToCatalogue(e: any) {
+		e.preventDefault();
+		router.push(`/catalogue/${product.object.UserId}`);
+	}
 
 	if (product) {
 		return (
@@ -20,10 +23,10 @@ export function ShowItem() {
 					imagen={product.object.Images[0].url}
 					precio={product.object["Unit cost"]}
 					description={product.object.Description}
-					onClick={() => {
-						router.replace("/checkout/" + product.object.objectID);
-					}}
 				></Item>
+
+				<CatalogueLink onClick={goToCatalogue}> Ver más prductos del vendedor </CatalogueLink>
+				{/* <WhatsappButton number={} /> */}
 			</MostrarProductos>
 		);
 	} else {

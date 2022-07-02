@@ -13,7 +13,7 @@ export const Title = styled.h1<{ white?: any }>`
 `;
 export const Subtitle = styled.h2<{ white?: any }>`
 	font-size: 32px;
-	font-weight: 700 bold;
+	font-weight: 700;
 	margin: 0px;
 
 	${(props) =>

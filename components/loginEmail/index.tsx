@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { sendCode, getToken } from "lib/api";
-import router from "next/router";
 import { Placeholder } from "ui/textFields";
 import { Root, RootCode } from "./styled";
 import { useForm } from "react-hook-form";
 import { BotonNaranja } from "ui/buttons";
 import { Body, Subtitle } from "ui/texts";
+import router from "next/router";
+import swal from 'sweetalert';
 
 export function Login() {
 	const {
@@ -25,13 +26,25 @@ export function Login() {
 			getToken(email, code).then((res) => {
 				if (res != undefined) {
 					if (res == false) {
-						window.alert("Codigo Incorrecto");
+						swal({
+							icon: "error",
+							title: "Ups...",
+							text: "Codigo Incorrecto",
+						});
 					} else {
-						window.alert("Logeado con EXITO");
+						swal({
+							title: "Yes!",
+							icon: "success",
+							text: "Logueado con éxito!",
+						});
 						router.push("/");
 					}
 				} else {
-					window.alert("Codigo Incorrecto");
+					swal({
+						icon: "error",
+						title: "Ups...",
+						text: "Codigo Incorrecto",
+					});
 				}
 			});
 		} catch (error) {

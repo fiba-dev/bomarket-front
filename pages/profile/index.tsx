@@ -1,5 +1,5 @@
 import { HeaderSearch } from "components/headerSearch";
-import Root, { ContainerProduct } from "./styled";
+import Root, { ContainerProfile } from "./styled";
 import { Profile } from "components/profile";
 import { Footer } from "components/footer";
 import type { NextPage } from "next";
@@ -8,10 +8,9 @@ const Home: NextPage = () => {
 	return (
 		<Root>
 			<HeaderSearch></HeaderSearch>
-			<ContainerProduct>
+			<ContainerProfile>
 				<Profile />
-			</ContainerProduct>
-
+			</ContainerProfile>
 			<Footer></Footer>
 		</Root>
 	);

@@ -1,6 +1,9 @@
 import styled from "styled-components";
-export const ContainerProduct = styled.div`
-	min-height: 100vh;
+export const ContainerProfile = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: calc(100vh - 100px);
 `;
 const Root = styled.div`
 	display: flex;

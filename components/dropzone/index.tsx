@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, { useCallback, useState} from 'react';
 import {useDropzone} from 'react-dropzone';
 import { DropzoneDiv } from './styled';
 
@@ -25,7 +25,7 @@ export function MyDropzone(props: any) {
 
     return <DropzoneDiv {...getRootProps()}>
         <input {...getInputProps()} />
-        <p className='text'> Drag and drop some files here, or click *here* to select files </p>
+        <p className='text'> Soltá imagenes acá o hace click aquí para añadir una foto de perfil. </p>
         { img ? <img  src={img} alt="image" style={{ maxWidth: 300, maxHeight: 250 }} /> : <p> </p> }
     </DropzoneDiv>
 }

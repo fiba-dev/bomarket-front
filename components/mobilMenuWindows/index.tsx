@@ -4,6 +4,7 @@ import { BotonCerrarMobil, BotonMobil } from "ui/buttons";
 import { useRouter } from "next/router";
 
 import { LoginDisplay } from "components/displayLogin";
+import { useMe } from "lib/hooks";
 
 const MobileWindows = styled.div`
 	width: 100vw;
@@ -25,6 +26,7 @@ const MobileWindows = styled.div`
 
 export function MobileMenuWindows(props: any) {
 	const router = useRouter();
+	let user = useMe()
 
 	return (
 		props.estado && (
@@ -34,13 +36,15 @@ export function MobileMenuWindows(props: any) {
 						props.cambiarEstado(!props.estado);
 					}}
 				></BotonCerrarMobil>
-				<BotonMobil
+
+				{!user.email ? <BotonMobil
 					onClick={() => {
 						router.push("/signin"), props.cambiarEstado(!props.estado);
 					}}
 				>
 					Ingresar
-				</BotonMobil>
+				</BotonMobil> : null}
+
 				<BotonMobil
 					onClick={() => {
 						router.push("/profile"), props.cambiarEstado(!props.estado);

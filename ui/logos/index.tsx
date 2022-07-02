@@ -1,6 +1,14 @@
 import { Body, Subtitle } from "../texts";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import User from "./user.svg";
+
+export const UserIcon = styled(User)`
+	stroke: #fafafa;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
+`;
 
 const ContainerRedes = styled.a`
 	text-decoration: none;

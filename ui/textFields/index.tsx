@@ -13,13 +13,32 @@ export const Placeholder = styled.input<{ profile?: any }>`
 	border-radius: 8px;
 	margin: 5px;
 	::placeholder {
-		color: black;
+		color: gray;
 	}
 
 	@media (min-width: 1080px) {
 		${(props) =>
-			props.profile &&
-			css`
+		props.profile &&
+		css`
+				width: 447px;
+			`}
+	}
+`;
+export const Textarea = styled.textarea<{ profile?: any }>`
+	height: 70px;
+	min-width: 350px;
+	border: solid 3px;
+	border-radius: 8px;
+	margin: 5px;
+	resize: none;
+	::placeholder {
+		color: gray;
+	}
+
+	@media (min-width: 1080px) {
+		${(props) =>
+		props.profile &&
+		css`
 				width: 447px;
 			`}
 	}
