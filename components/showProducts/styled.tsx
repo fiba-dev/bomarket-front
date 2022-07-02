@@ -1,24 +1,25 @@
 import styled from "styled-components";
 
 export const MostrarProductos = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	margin-top: 20px;
-	min-height: 800px;
-	@media (min-width: 1080px) {
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-around;
-		width: 800px;
+	gap: 30px;
+	width: 100%;
+	display: grid;
+    align-items: center;
+    justify-items: center;
+	padding: 40px 0 40px 0;
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+
+	@media(min-width: 1100px) {
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
 	}
 `;
 
 export const Root = styled.div`
-	display: flex;
-	flex-direction: column;
 	justify-content: center;
+	flex-direction: column;
 	align-items: center;
-	margin-top: 20px;
 	min-height: 800px;
+	margin-top: 20px;
+	display: flex;
+	width: 100%;
 `;

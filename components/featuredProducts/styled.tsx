@@ -8,7 +8,11 @@ export const MostrarProductos = styled.div`
     align-items: center;
     justify-items: center;
 	padding: 40px 0 40px 0;
-    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(370px, 1fr));
+
+	@media(min-width: 1200px) {
+		grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+	}
 `;
 
 export const Root = styled.div`
