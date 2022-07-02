@@ -1,5 +1,5 @@
+import { MostrarProductos, Root, Spinner } from "./styled";
 import React, { useEffect, useState } from "react";
-import { MostrarProductos, Root } from "./styled";
 import { getUserCatalogue } from "lib/hooks";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
@@ -95,6 +95,15 @@ export function ShowCatalogue() {
 			</Root>
 		);
 	} else {
-		return <h2 style={{ alignSelf: "center", justifyContent: "center", minHeight: 500, display: "flex", flexDirection: "column" }}> Cargando... </h2>;
+		return <Spinner>
+			<div className="spinner">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</Spinner>
 	}
 }

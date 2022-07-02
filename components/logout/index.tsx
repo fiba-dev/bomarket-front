@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import router from "next/router";
-import { Root } from "./styled";
-import { Title } from "ui/texts";
 import { getSaveitem, removeItem } from "lib/api";
+import React, { useEffect } from "react";
 import { refreshPage } from "lib/hooks";
+import { Spinner } from "./styled";
+import router from "next/router";
 
 export function LogoutWindows() {
 	const email = getSaveitem("email");
@@ -17,11 +16,14 @@ export function LogoutWindows() {
 		}
 	}, [email]);
 
-	return (
-		<div>
-			<Root>
-				<Title>Logging Out</Title>
-			</Root>
+	return <Spinner>
+		<div className="spinner">
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
+			<div></div>
 		</div>
-	);
+	</Spinner>
 }

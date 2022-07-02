@@ -1,7 +1,7 @@
+import { Form, Root, UserPhoto, Spinner } from "./styled";
 import { Placeholder, Textarea } from "ui/textFields";
-import { Large, Subtitle, Title } from "ui/texts";
 import { MyDropzone } from "components/dropzone";
-import { Form, Root, UserPhoto } from "./styled";
+import { Large, Subtitle } from "ui/texts";
 import { useMe, editMe } from "lib/hooks";
 import { useForm } from "react-hook-form";
 import { BotonNaranja } from "ui/buttons";
@@ -80,6 +80,15 @@ export function Profile() {
 		);
 
 	} else {
-		return <Title> Cargando ... </Title>
+		return <Spinner>
+			<div className="spinner">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</Spinner>
 	}
 }
