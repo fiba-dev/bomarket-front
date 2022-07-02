@@ -1,5 +1,5 @@
 import { MostrarProductos, Root } from "./styled";
-import { getUserCatalog } from "lib/hooks";
+import { getUserCatalogue } from "lib/api";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
 import { PageButton } from "ui/buttons";
@@ -12,13 +12,13 @@ export function ShowCatalogue() {
 	const query = router.query;
     const [ userCatalogue, setUserCatalogue ] = useState(null as any);
 
-	async function setCatalogue() {
-		const catalogue = await getUserCatalog((query.userId as string));
+	const catalogueOfUser = async () => {
+		const catalogue = await getUserCatalogue((query.userId as string));
 		await setUserCatalogue(catalogue);
 	}
 
 	useEffect(() => {
-		setCatalogue();
+		catalogueOfUser();
 	}, []);
 
 	function VerMenos() {
@@ -35,6 +35,7 @@ export function ShowCatalogue() {
 			);
 		}
 	}
+
 	function VerMas() {
 		const q: any = router.query;
 		let offset = parseInt(q.offset);
@@ -55,7 +56,7 @@ export function ShowCatalogue() {
 
 	if (userCatalogue) {
 		const results =
-			userCatalogue.results.length == 0 ? "No se encontraron Resultados" : "";
+		userCatalogue.results.length == 0 ? "No se encontraron Resultados" : "";
 		let limit = query.limit ? parseInt(query.limit.toString()) : 5;
 		let offset = query.offset ? parseInt(query.offset.toString()) : 5;
 		const paginaActual = userCatalogue.results.length == 0 ? "" : offset / 5 + 1;
@@ -91,7 +92,6 @@ export function ShowCatalogue() {
 			</Root>
 		);
 	} else {
-		return <div>
-		</div>;
+		return <h2 style={{ alignSelf: "center", justifyContent: "center", minHeight: 500, display: "flex", flexDirection: "column" }}> Cargando... </h2>;
 	}
 }

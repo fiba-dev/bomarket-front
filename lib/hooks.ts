@@ -81,10 +81,3 @@ export async function getOrder(externalReference: any) {
     : false;
 }
 
-export async function getUserCatalog(userId: string) {
-
-  return userId ? await fetchApi(`/catalogue?q=${userId}&offset=0&limit=10`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-  }) : false;
-}
