@@ -81,6 +81,6 @@ export function ShowProducts() {
 			</Root>
 		);
 	} else {
-		return <div></div>;
+		return <div style={{ width: 100 + "%" }}></div>;
 	}
 }

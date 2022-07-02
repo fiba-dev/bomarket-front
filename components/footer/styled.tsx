@@ -1,14 +1,14 @@
 import styled from "styled-components";
 export const Root = styled.div`
-	display: flex;
-	flex-direction: column;
+	justify-content: space-around;
 	background-color: black;
-	width: 100%;
+	flex-direction: column;
 	align-items: left;
+	position: static;
+	display: flex;
 	padding: 30px;
 	height: 648px;
-	justify-content: space-around;
-	position: static;
+	width: 100%;
 	bottom: 0px;
 
 	@media (min-width: 1080px) {
@@ -17,11 +17,12 @@ export const Root = styled.div`
 	}
 `;
 export const RootMenu = styled.div`
-	display: flex;
-	flex-direction: column;
-	height: 50%;
-	align-items: left;
 	justify-content: space-evenly;
+	flex-direction: column;
+	align-items: left;
+	display: flex;
+	height: 50%;
+	width: 80px;
 
 	p {
 		:hover {
@@ -31,11 +32,12 @@ export const RootMenu = styled.div`
 	}
 `;
 export const RootRedes = styled.div`
-	display: flex;
-	flex-direction: column;
-	height: 50%;
-	align-items: left;
 	justify-content: space-evenly;
+	flex-direction: column;
+	align-items: left;
+	display: flex;
+	width: 100px;
+	height: 50%;
 `;
 export const RootLinks = styled.div`
 	display: flex;
