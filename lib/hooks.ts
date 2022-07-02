@@ -84,8 +84,8 @@ export async function getOrder(externalReference: any) {
 export async function getUserCatalogue(userId: string) {
 
   if (userId) {
-    const catalogue = await fetchApi(`/catalogue?q=${userId}&offset=0&limit=10`, {
-      method: "POST",
+    const catalogue = await fetchApi(`/catalogue?UserId=${userId}`, {
+      method: "GET",
       headers: { "Content-Type": "application/json" },
     });
     return catalogue;

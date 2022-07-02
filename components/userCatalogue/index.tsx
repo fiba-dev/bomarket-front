@@ -14,6 +14,7 @@ export function ShowCatalogue() {
 
 	const catalogueOfUser = async () => {
 		const catalogue = await getUserCatalogue((query.userId as string));
+		console.log(catalogue);
 		await setUserCatalogue(catalogue);
 	}
 
