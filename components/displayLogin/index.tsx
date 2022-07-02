@@ -90,31 +90,5 @@ export function LoginDisplayAndButton() {
 				</Dropdown>
 			) : null}
 		</Root>
-	)
-
-	// if (user) {
-	// 	return (
-	// 		<DisplayLoginDesktop>
-	// 			<Body white>{user.email}</Body>
-	// 			<a
-	// 				onClick={() => {
-	// 					router.push("/logout");
-	// 				}}
-	// 			>
-	// 				{" "}
-	// 				<Large fucsia> Cerrar Sesion </Large>{" "}
-	// 			</a>
-	// 		</DisplayLoginDesktop>
-	// 	);
-	// } else {
-	// 	return (
-	// 		<DisplayLoginDesktop>
-	// 			<h3 style={{ color: "#FEFEFE", marginRight: 10, cursor: "pointer" }} onClick={() => {
-	// 				router.push("/signin");
-	// 			}}>
-	// 				Ingresar
-	// 			</h3>
-	// 		</DisplayLoginDesktop>
-	// 	);
-	// }
+	);
 }

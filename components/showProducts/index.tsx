@@ -1,4 +1,4 @@
-import { MostrarProductos, Root } from "./styled";
+import { MostrarProductos, Root, Spinner } from "./styled";
 import { useSearchProducts } from "lib/hooks";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
@@ -81,6 +81,15 @@ export function ShowProducts() {
 			</Root>
 		);
 	} else {
-		return <div style={{ width: 100 + "%" }}></div>;
+		return <Spinner>
+			<div className="spinner">
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+				<div></div>
+			</div>
+		</Spinner>;
 	}
 }
