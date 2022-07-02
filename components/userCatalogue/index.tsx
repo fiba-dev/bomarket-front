@@ -1,9 +1,9 @@
+import React, { useEffect, useState } from "react";
 import { MostrarProductos, Root } from "./styled";
 import { getUserCatalogue } from "lib/api";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
 import { PageButton } from "ui/buttons";
-import React, { useEffect, useState } from "react";
 import { Subtitle } from "ui/texts";
 import { Card } from "ui/card";
 
