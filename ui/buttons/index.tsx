@@ -144,9 +144,9 @@ const Styles = styled(ReactWhatsapp)`
 	}
 `;
 
-export function WhatsappButton(number: number) {
+export function WhatsappButton(number: string) {
 
 	return <div>
-		<Styles number={`${number}`} message="Trying from the web" element="img" src="https://res.cloudinary.com/dx1fmmltu/image/upload/v1656622795/whatsapp_rjprep.png" />
+		<Styles number={number} message="Trying from the web" element="img" src="https://res.cloudinary.com/dx1fmmltu/image/upload/v1656622795/whatsapp_rjprep.png" />
 	</div>
 }

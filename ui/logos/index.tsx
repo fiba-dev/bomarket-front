@@ -4,9 +4,10 @@ import styled from "styled-components";
 import User from "./user.svg";
 
 export const UserIcon = styled(User)`
-  stroke: #fafafa;
-  width: 35px;
-  height: 35px;
+	stroke: #fafafa;
+	cursor: pointer;
+	height: 35px;
+	width: 35px;
 `;
 
 const ContainerRedes = styled.a`

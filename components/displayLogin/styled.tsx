@@ -17,14 +17,21 @@ const animation = keyframes`
 `;
 
 export const Dropdown = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: absolute;
-  width: 100%;
-  top: 84px;
-  left: 0px;
   animation: ${animation} 0.3s ease-in;
+  flex-direction: column;
+  border-radius: 10px;
+  position: absolute;
+  border: 5px outset;
+  cursor: pointer;
+  display: flex;
+  right: 0px;
+  top: 84px;
+
+  :hover {
+    border-color: #edae49;
+  }
 `;
+
 export const MenuOption = styled.a`
   background-color: #ffffff;
   padding: 12px 30px;

@@ -11,7 +11,6 @@ const Home: NextPage = () => {
 			<ContainerProduct>
 				<ShowItem></ShowItem>
 			</ContainerProduct>
-
 			<Footer></Footer>
 		</Root>
 	);

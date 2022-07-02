@@ -46,14 +46,12 @@ export function Card({ imagen = "", precio = "", nombre = "", onClick }: any) {
 }
 
 const ItemContainer = styled.div`
-	display: flex;
 	flex-direction: column;
 	align-items: center;
+	max-width: 500px;
+	display: flex;
 	padding: 15px;
 	height: auto;
-	max-width: 500px;
-	justify-content: space-evenly;
-	cursor: pointer;
 
 	@media (min-width: 1080px) {
 		max-width: 1080px;
@@ -62,23 +60,22 @@ const ItemContainer = styled.div`
 `;
 
 export const ItemMedia: any = styled.div`
-  background-image: url(${(props: any) => props.src};);
-  min-width: 300px;
-  background-size: cover;
-  background-position: center;
-	height: 500px;
+	background-image: url(${(props: any) => props.src};);
+	background-position: center;
+	background-size: cover;
+	min-width: 300px;
 	min-width: 400px;
+	height: 500px;
 `;
 
 const ItemInfo = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: space-around;
-	gap: 20px;
-	min-height: 500px;
-	align-items: center;
 	align-items: flex-start;
+	flex-direction: column;
+	align-items: baseline;
 	padding-left: 25px;
+	display: flex;
+	gap: 20px;
+
 	@media (min-width: 1080px) {
 		max-width: 700px;
 	}
@@ -95,12 +92,9 @@ export function Item({
 		<ItemContainer>
 			<ItemMedia src={imagen} />
 			<ItemInfo>
-				<Subtitle>{nombre}</Subtitle>
-				<Subtitle>{precio} Bs.</Subtitle>
-				<BotonCeleste onClick={onClick}>
-					<Subtitle>Comprar </Subtitle>
-				</BotonCeleste>
-				<Body>{description}</Body>
+				<Subtitle> {nombre} </Subtitle>
+				<Subtitle> $ {precio} </Subtitle>
+				<Body> {description} </Body>
 			</ItemInfo>
 		</ItemContainer>
 	);

@@ -1,10 +1,10 @@
+import { Dropdown, MenuOption, Root } from "./styled";
 import { BotonFucsia } from "../../ui/buttons";
 import { Body, Large } from "../../ui/texts";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { useMe } from "lib/hooks";
 import { UserIcon } from "ui/logos";
-import { Dropdown, MenuOption, Root } from "./styled";
+import { useMe } from "lib/hooks";
 import { useState } from "react";
 
 
@@ -16,15 +16,6 @@ const DisplayLogin = styled.div`
 	@media (min-width: 1080px) {
 		background-color: red;
 		display: none;
-	}
-`;
-const DisplayLoginDesktop = styled.div`
-	flex-direction: column;
-	align-items: center;
-	display: none;
-
-	@media (min-width: 1080px) {
-		display: flex;
 	}
 `;
 

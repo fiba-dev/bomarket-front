@@ -18,6 +18,7 @@ export async function editMe({ name, adress, phone, photo, description }: any) {
     body: { name, adress, phone, photo, description },
   });
 }
+
 export function useProducts(productId: any) {
   const { data, error } = useSWRImmutable(
     () => (productId ? "/products/" + productId : null),
@@ -25,6 +26,7 @@ export function useProducts(productId: any) {
   );
   return data;
 }
+
 export function useSearchProducts(q: any, offset: any = 0, limit: any = 5) {
   const url = q
     ? +"/search?q=" + q + "&offset=" + offset + "&limit=" + limit
@@ -36,6 +38,7 @@ export function useSearchProducts(q: any, offset: any = 0, limit: any = 5) {
   );
   return data;
 }
+
 export function useFeaturedProducts(
   q: any = " ",
   offset: any = 0,
@@ -59,6 +62,7 @@ export function useFeaturedProducts(
     return cortado;
   }
 }
+
 export async function createOrder(productId: any, quantity: number) {
   return productId
     ? await fetchApi("/order?productId=" + productId, {
@@ -68,6 +72,7 @@ export async function createOrder(productId: any, quantity: number) {
     })
     : false;
 }
+
 export async function getOrder(externalReference: any) {
   return externalReference
     ? await fetchApi("/order/" + externalReference, {

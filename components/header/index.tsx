@@ -1,18 +1,18 @@
 import { LoginDisplayAndButton } from "components/displayLogin";
-import { LogoPrincipal, MenuBurger } from "ui/logos";
 import { MobileMenuWindows } from "components/mobilMenuWindows";
+import { LogoPrincipal, MenuBurger } from "ui/logos";
 import styled from "styled-components";
 import { useState } from "react";
 
 const HeaderContainer = styled.div`
-	display: flex;
+	justify-content: space-between;
+	background-color: black;
 	flex-direction: row;
+	align-items: center;
+	display: flex;
+	padding: 10px;
 	height: 84px;
 	width: 100%;
-	background-color: black;
-	justify-content: space-between;
-	padding: 10px;
-	align-items: center;
 `;
 
 export function Header() {

@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { useMe, editMe } from "lib/hooks";
-import router from "next/router";
 import { Placeholder, Textarea } from "ui/textFields";
+import { Large, Subtitle, Title } from "ui/texts";
+import { MyDropzone } from "components/dropzone";
 import { Form, Root, UserPhoto } from "./styled";
+import { useMe, editMe } from "lib/hooks";
 import { useForm } from "react-hook-form";
 import { BotonNaranja } from "ui/buttons";
-import { Body, Large, Subtitle, Title } from "ui/texts";
-import { MyDropzone } from "components/dropzone";
+import React, { useState } from "react";
+import router from "next/router";
+import swal from 'sweetalert';
 
 export function Profile() {
 	const {
@@ -29,15 +30,13 @@ export function Profile() {
 		const phone = e.phone ? e.phone : user.phone;
 		const description = e.description ? e.description : user.description;
 
-
-
 		let res = await editMe({ name, adress, phone: parseInt(phone), photo: image, description });
-
+		
 		if (res == true) {
-			window.alert("MODIFICADO CON EXITO");
+			swal({ title: "Yes!", text: "Modificado con éxito!", icon: "success" });
 			router.push("/");
 		} else {
-			window.alert("NO SE PUDO MODIFICAR EL USUARIO");
+			swal({ title: "Ups...", text: "No se pudo modificar", icon: "error" });
 		}
 	}
 
@@ -81,6 +80,6 @@ export function Profile() {
 		);
 
 	} else {
-		return <Title>Cargando ...</Title>
+		return <Title> Cargando ... </Title>
 	}
 }
