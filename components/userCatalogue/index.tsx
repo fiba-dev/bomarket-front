@@ -1,5 +1,5 @@
 import { MostrarProductos, Root } from "./styled";
-import { useGetUserCatalog } from "lib/hooks";
+import { getUserCatalog } from "lib/hooks";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
 import { PageButton } from "ui/buttons";
@@ -12,14 +12,14 @@ export function ShowCatalogue() {
 	const query = router.query;
     const [ userCatalogue, setUserCatalogue ] = useState(null as any);
 
-	async function useSetCatalogue() {
-		const catalogue = await useGetUserCatalog((query.userId as string));
+	async function setCatalogue() {
+		const catalogue = await getUserCatalog((query.userId as string));
 		await setUserCatalogue(catalogue);
 	}
 
 	useEffect(() => {
-		useSetCatalogue();
-	}, [userCatalogue]);
+		setCatalogue();
+	}, []);
 
 	function VerMenos() {
 		const q: any = router.query;
