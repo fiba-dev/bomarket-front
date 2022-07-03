@@ -33,3 +33,13 @@ export const FormProd = styled.form`
         color: red;
     }
 `;
+
+export const Select = styled.select`
+    background-color: #FEFEFE;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 2px solid;
+    margin-left: 5px;
+    height: 35px;
+    width: 350px;
+`;

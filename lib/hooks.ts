@@ -105,11 +105,22 @@ type productData = {
 
 export async function uploadOrEditProduct(productData: productData) {
 
+  let id = productData.id;
+  let name = productData.name;
+  let price = productData.price;
+  let stock = productData.stock;
+  let images = productData.images;
+  let category = productData.category;
+  let description = productData.description;
+
   if (productData.id) {
     return await fetchApi("/me/uploadProduct", {
-      method: "POST",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: { productData }
+      body: { id, name, price, description, category, stock, images }
+
+    }).catch(() => {
+      swal({ title: "Ups...", text: "Algo salió mal", icon: "error" });
 
     }).then(() => {
       swal({ title: "Yes!", text: "Producto Editado!", icon: "success" });
@@ -119,7 +130,10 @@ export async function uploadOrEditProduct(productData: productData) {
     return await fetchApi("/me/uploadProduct", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: { productData }
+      body: { name, price, description, category, stock, images }
+
+    }).catch(() => {
+      swal({ title: "Ups...", text: "Algo salió mal", icon: "error" });
 
     }).then(() => {
       swal({ title: "Yes!", text: "Producto publicado!", icon: "success" });

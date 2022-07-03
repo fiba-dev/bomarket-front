@@ -1,13 +1,13 @@
 import { MyDropzone } from "components/dropzone";
 import { uploadOrEditProduct } from "lib/hooks";
 import { BodyBold, Subtitle } from "ui/texts";
+import { FormProd, Select } from "./styled";
 import { Placeholder } from "ui/textFields";
 import { BotonNaranja } from "ui/buttons";
 import { useForm } from "react-hook-form";
 import { useProducts } from "lib/hooks";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { FormProd } from "./styled";
 import swal from 'sweetalert';
 
 
@@ -22,7 +22,7 @@ export function EditProduct() {
         setImage(img);
     }
 
-    const onSubmit = (data: any) => {
+    const onSubmit = async (data: any) => {
         // console.log({ data, image });
 
         const productData = {
@@ -35,7 +35,13 @@ export function EditProduct() {
             id: router.query.productId?.toString(),
         }
 
-        image ? uploadOrEditProduct(productData) : swal({ title: "Upss...", text: "Faltó la imagen!", icon: "error" });
+        if (image) {
+            await uploadOrEditProduct(productData);
+            await router.push("/");
+
+        } else {
+            swal({ title: "Upss...", text: "Faltó una imagen!", icon: "error" });
+        }
     }
 
     return <FormProd onSubmit={handleSubmit(onSubmit) }>
@@ -48,9 +54,14 @@ export function EditProduct() {
             { errors["product-name"] && <span className="error-style"> This field is required! </span> }
         </div>
 
-        <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
+        <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }} placeholder="Product category">
             <label> Category </label>
-            <Placeholder style={{ marginBottom: 10 }} { ...register("product-category", { required: true } )} profile="Product-category" placeholder={product?.object?.category} />
+            <Select style={{ marginBottom: 10 }} { ...register("product-category", { required: true } )}>
+                <option value="Mouse"> Mouse </option>
+                <option value="Teclados"> Teclados </option>
+                <option value="Monitores"> Monitores </option>
+                <option value="Auriculares"> Auriculares </option>
+            </Select>
             { errors["product-category"] && <span className="error-style"> This field is required! </span> }
         </div>
 
@@ -71,7 +82,7 @@ export function EditProduct() {
         </div>
 
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
-            <label style={{ alignSelf: "baseline", marginLeft: 8 }}> Price </label>
+            <label style={{ alignSelf: "baseline", marginLeft: 8 }}> Description </label>
             <textarea className="container" { ...register("product-desc", { required: true } )} placeholder={product?.object?.Description}  />
             { errors["product-desc"] && <span className="error-style"> This field is required! </span> }
         </div>
