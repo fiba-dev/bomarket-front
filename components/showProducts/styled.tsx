@@ -28,6 +28,7 @@ export const Spinner = styled.div`
 
 	display: flex;
 	min-height: 300px;
+	align-items: center;
 	flex-direction: column;
 	justify-content: center;
 

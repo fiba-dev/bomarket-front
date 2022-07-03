@@ -82,6 +82,7 @@ export function ShowProducts() {
 		);
 	} else {
 		return <Spinner>
+			<h2 style={{ marginBottom: 80 }}> Buscá los productos que más querés! </h2>
 			<div className="spinner">
 				<div></div>
 				<div></div>
