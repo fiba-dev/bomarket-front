@@ -97,7 +97,7 @@ export function Item({
 			<ItemMedia src={imagen} />
 			<ItemInfo>
 				<Subtitle> {nombre} </Subtitle>
-				<Subtitle> $ {precio} </Subtitle>
+				<Subtitle> {precio} Bs. </Subtitle>
 				<Body> {description} </Body>
 			</ItemInfo>
 		</ItemContainer>

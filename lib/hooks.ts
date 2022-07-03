@@ -91,3 +91,28 @@ export async function getUserCatalogue(userId: string) {
     return catalogue;
   }
 }
+
+type productData = {
+  Name: string,
+  price: number,
+  stock: number,
+  images: string,
+  category: string,
+  Description: string,
+}
+
+export async function postUploadProduct(productData: productData) {
+
+  if (productData) {
+    await fetchApi("/me/uploadProduct", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: { productData }
+
+    }).catch((err) => {
+      console.error("Este es el error del endpoint: ", err);
+    }).then(() => {
+      return true;
+    });
+  }
+}

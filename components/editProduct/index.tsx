@@ -1,38 +1,38 @@
 import { MyDropzone } from "components/dropzone";
-import { postUploadProduct } from "lib/hooks";
 import { BodyBold, Subtitle } from "ui/texts";
 import { Placeholder } from "ui/textFields";
 import { BotonNaranja } from "ui/buttons";
 import { useForm } from "react-hook-form";
+import { useProducts } from "lib/hooks";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { FormProd } from "./styled";
 import swal from 'sweetalert';
 
 
-export function UploadProduct() {
+export function EditProduct() {
 
     const router = useRouter();
     const [ image, setImage ] = useState(null as any);
+    const product = useProducts(router.query.productId);
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const getImage = (img: any) => {
         setImage(img);
     }
 
-    const onSubmit = async (data: any) => {
-
+    const onSubmit = (data: any) => {
+        console.log({ data, image });
         const productData = {
             images: image,
             Name: data["product-name"],
+            stock: data["product-stock"],
+            price: data["product-price"],
             Description: data["product-desc"],
             category: data["product-category"],
-            stock: parseInt(data["product-stock"]),
-            price: parseInt(data["product-price"]),
         }
 
-        image ? await postUploadProduct(productData).then(() => swal({ title: "Yes!", text: "Producto publicado!", icon: "success" }))
-        : swal({ title: "Upss...", text: "Oh, algo salió mal!", icon: "error" });
+        image ? swal({ title: "Yes!", text: "Producto publicado!", icon: "success" }) : swal({ title: "Upss...", text: "Oh, algo salió mal!", icon: "error" });
     }
 
     return <FormProd onSubmit={handleSubmit(onSubmit) }>
@@ -41,39 +41,39 @@ export function UploadProduct() {
 
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
             <label> Name </label>
-            <Placeholder style={{ marginBottom: 10 }} { ...register("product-name", { required: true } )} profile="Product-name" placeholder="Product name"/>
+            <Placeholder style={{ marginBottom: 10 }} { ...register("product-name", { required: true } )} profile="Product-name" placeholder={product?.object?.Name} />
             { errors["product-name"] && <span className="error-style"> This field is required! </span> }
         </div>
 
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
             <label> Category </label>
-            <Placeholder style={{ marginBottom: 10 }} { ...register("product-category", { required: true } )} profile="Product-category" placeholder="Product category"/>
+            <Placeholder style={{ marginBottom: 10 }} { ...register("product-category", { required: true } )} profile="Product-category" placeholder={product?.object?.category} />
             { errors["product-category"] && <span className="error-style"> This field is required! </span> }
         </div>
 
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
             <label> Price </label>
-            <Placeholder type="number" style={{ marginBottom: 10 }} { ...register("product-price", { required: true } )} profile="Product-price" placeholder="Product price"/>
+            <Placeholder type="number" style={{ marginBottom: 10 }} { ...register("product-price", { required: true } )} profile="Product-price" placeholder={product?.object["Unit cost"] + " Bs."} />
             { errors["product-price"] && <span className="error-style"> This field is required! </span> }
         </div>
 
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
             <label> Stock </label>
-            <Placeholder type="number" style={{ marginBottom: 10 }} { ...register("product-stock", { required: true } )} profile="Product-stock" placeholder="Product stock"/>
+            <Placeholder type="number" style={{ marginBottom: 10 }} { ...register("product-stock", { required: true } )} profile="Product-stock" placeholder={product?.object?.stock} />
             { errors["product-stock"] && <span className="error-style"> This field is required! </span> }
         </div>
 
         <div>
-            <MyDropzone img={getImage}></MyDropzone>
+            { product?.object?.Images[0].url ?  <MyDropzone src={product?.object?.Images[0].url}></MyDropzone> : <MyDropzone img={getImage}></MyDropzone> }
         </div>
 
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
             <label style={{ alignSelf: "baseline", marginLeft: 8 }}> Price </label>
-            <textarea className="container" { ...register("product-desc", { required: true } )} placeholder="Product description"/>
+            <textarea className="container" { ...register("product-desc", { required: true } )} placeholder={product?.object?.Description}  />
             { errors["product-desc"] && <span className="error-style"> This field is required! </span> }
         </div>
 
-        <BotonNaranja> Publicar </BotonNaranja>
+        <BotonNaranja> Guardar </BotonNaranja>
         <BodyBold onClick={() => router.push("/")} style={{ color: "red", paddingTop: 10, cursor: "pointer" }}> Cancelar </BodyBold>
 
     </FormProd>

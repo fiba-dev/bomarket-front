@@ -20,8 +20,11 @@ export const CatalogueLink = styled.div`
 export const MostrarProductos = styled.div`
 	justify-content: flex-start;
 	flex-direction: column;
+	align-items: center;
+	margin-bottom: 10px;
 	margin-top: 20px;
 	display: flex;
+	width: 100%;
 	
 	@media (min-width: 1080px) {
 		justify-content: center;
