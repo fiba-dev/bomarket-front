@@ -1,6 +1,7 @@
 import { MostrarProductos, Root, Spinner } from "./styled";
 import React, { useEffect, useState } from "react";
 import { getUserCatalogue } from "lib/hooks";
+import { WhatsappButton } from "ui/buttons";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
 import { PageButton } from "ui/buttons";
@@ -11,11 +12,12 @@ export function ShowCatalogue() {
     const router = useRouter();
 	const query = router.query;
     const [ userCatalogue, setUserCatalogue ] = useState(null as any);
+    const [ phone, setPhone ] = useState(null as any);
 
 	const catalogueOfUser = async () => {
 		const catalogue = await getUserCatalogue((query.userId as string));
-		console.log(catalogue);
-		await setUserCatalogue(catalogue);
+		setUserCatalogue(catalogue);
+		setPhone(catalogue?.phone);
 	}
 
 	useEffect(() => {
@@ -86,6 +88,7 @@ export function ShowCatalogue() {
 						></Card>
 					))}
 				</MostrarProductos>
+				<WhatsappButton number={phone} />
 				<Pagination style={{ marginTop: 25, marginBottom: 25 }}>
 					{" "}
 					<PageButton onClick={VerMenos}> {verMenos} </PageButton>
