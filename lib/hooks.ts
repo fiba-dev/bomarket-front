@@ -1,6 +1,7 @@
-import useSWR from "swr";
 import useSWRImmutable from "swr/immutable";
 import { fetchApi } from "./api";
+import swal from 'sweetalert';
+import useSWR from "swr";
 
 export function useMe() {
   const { data, error } = useSWR("/me", fetchApi);
@@ -93,26 +94,35 @@ export async function getUserCatalogue(userId: string) {
 }
 
 type productData = {
-  Name: string,
+  name: string,
   price: number,
   stock: number,
   images: string,
   category: string,
-  Description: string,
+  description: string,
+  id?: string,
 }
 
-export async function postUploadProduct(productData: productData) {
+export async function uploadOrEditProduct(productData: productData) {
 
-  if (productData) {
-    await fetchApi("/me/uploadProduct", {
+  if (productData.id) {
+    return await fetchApi("/me/uploadProduct", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: { productData }
 
-    }).catch((err) => {
-      console.error("Este es el error del endpoint: ", err);
     }).then(() => {
-      return true;
+      swal({ title: "Yes!", text: "Producto Editado!", icon: "success" });
+    });
+
+  } else {
+    return await fetchApi("/me/uploadProduct", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: { productData }
+
+    }).then(() => {
+      swal({ title: "Yes!", text: "Producto publicado!", icon: "success" });
     });
   }
 }

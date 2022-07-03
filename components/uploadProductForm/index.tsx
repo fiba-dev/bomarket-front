@@ -1,5 +1,5 @@
 import { MyDropzone } from "components/dropzone";
-import { postUploadProduct } from "lib/hooks";
+import { uploadOrEditProduct } from "lib/hooks";
 import { BodyBold, Subtitle } from "ui/texts";
 import { Placeholder } from "ui/textFields";
 import { BotonNaranja } from "ui/buttons";
@@ -24,15 +24,14 @@ export function UploadProduct() {
 
         const productData = {
             images: image,
-            Name: data["product-name"],
-            Description: data["product-desc"],
+            name: data["product-name"],
+            description: data["product-desc"],
             category: data["product-category"],
             stock: parseInt(data["product-stock"]),
             price: parseInt(data["product-price"]),
         }
 
-        image ? await postUploadProduct(productData).then(() => swal({ title: "Yes!", text: "Producto publicado!", icon: "success" }))
-        : swal({ title: "Upss...", text: "Oh, algo salió mal!", icon: "error" });
+        image ? await uploadOrEditProduct(productData) : swal({ title: "Upss...", text: "Faltó una imagen!", icon: "error" });
     }
 
     return <FormProd onSubmit={handleSubmit(onSubmit) }>

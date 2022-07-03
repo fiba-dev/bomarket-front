@@ -26,6 +26,7 @@ export function ShowItem() {
 	if (product) {
 		return (
 			<MostrarProductos>
+				<WhatsappButton number={product.object?.phone.toString()} />
 				<Item
 					key={product.object.objectID}
 					nombre={product.object.Name}
@@ -35,7 +36,6 @@ export function ShowItem() {
 				></Item>
 				{ user.userId == product.object.UserId ? <BotonCeleste onClick={goToEditarProducto}> Editar </BotonCeleste> : false }
 				<CatalogueLink onClick={goToCatalogue}> Ver más prductos del vendedor </CatalogueLink>
-				<WhatsappButton number={product.object?.phone.toString()} />
 			</MostrarProductos>
 		);
 	} else {
