@@ -1,4 +1,5 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, css } from "styled-components";
+import { Large } from "../../ui/texts";
 
 export const Root = styled.div`
   display: none;
@@ -30,6 +31,20 @@ export const Dropdown = styled.div`
   :hover {
     border-color: #edae49;
   }
+`;
+
+export const Body = styled(Large)<{ white?: any }>`
+	font-size: 16px;
+
+  :hover {
+    text-decoration: underline;
+  }
+
+	${(props) =>
+		props.white &&
+		css`
+			color: white;
+		`}
 `;
 
 export const MenuOption = styled.a`
