@@ -26,7 +26,7 @@ const MobileWindows = styled.div`
 
 export function MobileMenuWindows(props: any) {
 	const router = useRouter();
-	let user = useMe()
+	let user = useMe();
 
 	return (
 		props.estado && (
@@ -59,6 +59,13 @@ export function MobileMenuWindows(props: any) {
 				>
 					Buscar
 				</BotonMobil>
+				{ user ? <BotonMobil
+					onClick={() => {
+						router.push("/upload-product"), props.cambiarEstado(!props.estado);
+					}}
+				>
+					Publicar Producto
+				</BotonMobil> : false }
 				<LoginDisplay />
 			</MobileWindows>
 		)

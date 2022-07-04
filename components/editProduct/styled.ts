@@ -38,20 +38,17 @@ export const Select = styled.select`
     background-color: #FEFEFE;
     margin-bottom: 10px;
     border-radius: 5px;
+    width: fit-content;
     border: 2px solid;
     margin-left: 5px;
+    cursor: pointer;
     height: 35px;
-    width: 350px;
 
-    select option {
-        width: 350px;
+    .option {
+        cursor: pointer;
     }
 
     @media(min-width: 1080px) {
         width: 447px;
-
-        select option {
-            width: 447px;
-        }
     }
 `;

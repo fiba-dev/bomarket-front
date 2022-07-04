@@ -75,6 +75,7 @@ export function ShowCatalogue() {
 		return (
 			<Root>
 				<Subtitle> {results} </Subtitle>{" "}
+				<WhatsappButton number={phone} />
 				<MostrarProductos>
 					{userCatalogue.results.map((r: any) => (
 						<Card
@@ -88,7 +89,6 @@ export function ShowCatalogue() {
 						></Card>
 					))}
 				</MostrarProductos>
-				<WhatsappButton number={phone} />
 				<Pagination style={{ marginTop: 25, marginBottom: 25 }}>
 					{" "}
 					<PageButton onClick={VerMenos}> {verMenos} </PageButton>

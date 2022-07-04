@@ -42,6 +42,16 @@ export function Footer() {
 							Buscar
 						</Body>
 					</a>
+					{ user ? <a>
+						<Body
+							white
+							onClick={() => {
+								router.push("/upload-product");
+							}}
+						>
+							Publicar Producto
+						</Body>
+					</a> : false } 
 					<a>
 						<Body
 							white

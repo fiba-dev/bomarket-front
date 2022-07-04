@@ -116,6 +116,7 @@ const Styles = styled(ReactWhatsapp)`
 
 	margin-right: 10px;
 	position: inherit;
+	margin-top: 10px;
 	cursor: pointer;
 	align-self: end;
 	height: 45px;

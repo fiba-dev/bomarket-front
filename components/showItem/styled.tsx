@@ -10,9 +10,7 @@ export const CatalogueLink = styled.div`
 	font-size: 18px;
 
 	@media(min-width: 1080px) {
-		align-self: flex-start;
-		margin-left: 120px;
-		margin-left: 80px;
+		align-self: center;
 		font-size: 20px;
 	}
 `;
@@ -20,8 +18,11 @@ export const CatalogueLink = styled.div`
 export const MostrarProductos = styled.div`
 	justify-content: flex-start;
 	flex-direction: column;
+	align-items: center;
+	margin-bottom: 10px;
 	margin-top: 20px;
 	display: flex;
+	width: 100%;
 	
 	@media (min-width: 1080px) {
 		justify-content: center;
