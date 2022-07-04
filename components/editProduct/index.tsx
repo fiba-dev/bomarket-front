@@ -57,10 +57,10 @@ export function EditProduct() {
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }} placeholder="Product category">
             <label> Category </label>
             <Select style={{ marginBottom: 10 }} { ...register("product-category", { required: true } )}>
-                <option value="Mouse"> Mouse </option>
-                <option value="Teclados"> Teclados </option>
-                <option value="Monitores"> Monitores </option>
-                <option value="Auriculares"> Auriculares </option>
+                <option className="option" value="Mouse"> Mouse </option>
+                <option className="option" value="Teclados"> Teclados </option>
+                <option className="option" value="Monitores"> Monitores </option>
+                <option className="option" value="Auriculares"> Auriculares </option>
             </Select>
             { errors["product-category"] && <span className="error-style"> This field is required! </span> }
         </div>
@@ -73,7 +73,7 @@ export function EditProduct() {
 
         <div style={{ alignSelf: "baseline", marginLeft: 8, display: "flex", flexDirection: "column" }}>
             <label> Stock </label>
-            <Placeholder type="number" style={{ marginBottom: 10 }} { ...register("product-stock", { required: true } )} profile="Product-stock" placeholder={product?.object?.stock} />
+            <Placeholder type="number" style={{ marginBottom: 10 }} { ...register("product-stock", { required: true } )} profile="Product-stock" placeholder={product?.object?.Stock} />
             { errors["product-stock"] && <span className="error-style"> This field is required! </span> }
         </div>
 

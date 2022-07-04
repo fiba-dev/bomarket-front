@@ -42,4 +42,16 @@ export const Select = styled.select`
     margin-left: 5px;
     height: 35px;
     width: 350px;
+
+    select option {
+        width: 350px;
+    }
+
+    @media(min-width: 1080px) {
+        width: 447px;
+
+        select option {
+            width: 447px;
+        }
+    }
 `;
