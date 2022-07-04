@@ -1,6 +1,7 @@
-import { Form, Root, UserPhoto, Spinner } from "./styled";
 import { Placeholder, Textarea } from "ui/textFields";
+import { Form, Root, UserPhoto } from "./styled";
 import { MyDropzone } from "components/dropzone";
+import { SpinnerLoader } from "ui/loaders";
 import { Large, Subtitle } from "ui/texts";
 import { useMe, editMe } from "lib/hooks";
 import { useForm } from "react-hook-form";
@@ -80,15 +81,6 @@ export function Profile() {
 		);
 
 	} else {
-		return <Spinner>
-			<div className="spinner">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</Spinner>
+		return <SpinnerLoader />
 	}
 }

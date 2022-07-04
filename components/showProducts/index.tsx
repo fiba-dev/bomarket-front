@@ -1,5 +1,6 @@
-import { MostrarProductos, Root, Spinner } from "./styled";
+import { MostrarProductos, Root } from "./styled";
 import { useSearchProducts } from "lib/hooks";
+import { SpinnerLoader } from "ui/loaders";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
 import { PageButton } from "ui/buttons";
@@ -81,16 +82,6 @@ export function ShowProducts() {
 			</Root>
 		);
 	} else {
-		return <Spinner>
-			<h2 style={{ marginBottom: 80 }}> Buscá los productos que más querés! </h2>
-			<div className="spinner">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</Spinner>;
+		return <SpinnerLoader />
 	}
 }

@@ -52,3 +52,17 @@ export const MenuOption = styled.a`
   padding: 12px 30px;
   border-bottom: 1px solid #e0e0e0;
 `;
+
+export const UserDisplay = styled.div`
+
+  align-items: center;
+  display: flex;
+  gap: 15px;
+`;
+
+export const ProfilePicture = styled.img`
+
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+`;

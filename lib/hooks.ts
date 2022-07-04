@@ -156,3 +156,12 @@ export async function deleteProduct(productId: string) {
     });
   }
 }
+
+export async function syncBothDB() {
+
+  return await fetchApi("/sync", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+
+  });
+}

@@ -1,4 +1,4 @@
-import { Dropdown, MenuOption, Root, Body } from "./styled";
+import { Dropdown, MenuOption, Root, Body, UserDisplay, ProfilePicture } from "./styled";
 import { BotonFucsia } from "../../ui/buttons";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -53,8 +53,9 @@ export function LoginDisplay() {
 }
 
 export function LoginDisplayAndButton() {
-	const router = useRouter();
+
 	const [userActive, setUserActive] = useState(false)
+	const router = useRouter();
 	let user = useMe();
 
 	function handleClick() {
@@ -68,7 +69,19 @@ export function LoginDisplayAndButton() {
 
 	return (
 		<Root>
-			<UserIcon onClick={handleClick}></UserIcon>
+
+			{ user ?
+
+				<UserDisplay>
+					<Body style={{ color: "#FEFEFE"}}> { user?.name } </Body>
+					<ProfilePicture src={user?.photo["secure_url"]} onClick={handleClick} />
+				</UserDisplay>
+				
+				:
+
+				<UserIcon onClick={handleClick} />
+			}
+
 			{userActive ? (
 				<Dropdown>
 					<MenuOption

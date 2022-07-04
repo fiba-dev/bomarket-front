@@ -1,11 +1,10 @@
-import { uploadOrEditProduct, deleteProduct } from "lib/hooks";
+import { uploadOrEditProduct, deleteProduct, syncBothDB, useProducts } from "lib/hooks";
 import { BodyBold, Subtitle, Large } from "ui/texts";
 import { MyDropzone } from "components/dropzone";
 import { FormProd, Select } from "./styled";
 import { Placeholder } from "ui/textFields";
 import { BotonNaranja } from "ui/buttons";
 import { useForm } from "react-hook-form";
-import { useProducts } from "lib/hooks";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import swal from 'sweetalert';
@@ -37,6 +36,7 @@ export function EditProduct() {
 
         if (image) {
             await uploadOrEditProduct(productData);
+            await syncBothDB();
             await router.push("/");
 
         } else {

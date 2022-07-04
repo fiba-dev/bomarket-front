@@ -1,7 +1,8 @@
-import { MostrarProductos, Root, Spinner } from "./styled";
+import { MostrarProductos, Root } from "./styled";
 import React, { useEffect, useState } from "react";
 import { getUserCatalogue } from "lib/hooks";
 import { WhatsappButton } from "ui/buttons";
+import { SpinnerLoader } from "ui/loaders";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
 import { PageButton } from "ui/buttons";
@@ -98,15 +99,6 @@ export function ShowCatalogue() {
 			</Root>
 		);
 	} else {
-		return <Spinner>
-			<div className="spinner">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</Spinner>
+		return <SpinnerLoader />
 	}
 }
