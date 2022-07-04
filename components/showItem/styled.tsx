@@ -10,9 +10,7 @@ export const CatalogueLink = styled.div`
 	font-size: 18px;
 
 	@media(min-width: 1080px) {
-		align-self: flex-start;
-		margin-left: 120px;
-		margin-left: 80px;
+		align-self: center;
 		font-size: 20px;
 	}
 `;

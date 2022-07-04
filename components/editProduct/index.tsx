@@ -1,13 +1,13 @@
 import { MyDropzone } from "components/dropzone";
 import { uploadOrEditProduct } from "lib/hooks";
-import { BodyBold, Subtitle } from "ui/texts";
+import { BodyBold, Subtitle, Large } from "ui/texts";
 import { FormProd, Select } from "./styled";
 import { Placeholder } from "ui/textFields";
 import { BotonNaranja } from "ui/buttons";
 import { useForm } from "react-hook-form";
 import { useProducts } from "lib/hooks";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { MouseEventHandler, ReactEventHandler, useState } from "react";
 import swal from 'sweetalert';
 
 
@@ -42,6 +42,12 @@ export function EditProduct() {
         } else {
             swal({ title: "Upss...", text: "Faltó una imagen!", icon: "error" });
         }
+    }
+
+    function deleteProduct(e: any) {
+        e.preventDefault();
+        swal({ title: "Yes!", text: "Producto Eliminado!", icon: "success" });
+        // await router.push("/");
     }
 
     return <FormProd onSubmit={handleSubmit(onSubmit) }>
@@ -88,7 +94,8 @@ export function EditProduct() {
         </div>
 
         <BotonNaranja> Guardar </BotonNaranja>
-        <BodyBold onClick={() => router.push("/")} style={{ color: "red", paddingTop: 10, cursor: "pointer" }}> Cancelar </BodyBold>
+        <Large onClick={deleteProduct} style={{ color: "red", marginTop: 25, marginBottom: 10, cursor: "pointer" }}> Eliminar </Large>
+        <BodyBold onClick={() => router.push("/")} style={{ color: "black", paddingTop: 10, cursor: "pointer" }}> Cancelar </BodyBold>
 
     </FormProd>
 }

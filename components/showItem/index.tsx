@@ -34,7 +34,7 @@ export function ShowItem() {
 					precio={product.object["Unit cost"]}
 					description={product.object.Description}
 				></Item>
-				{ user.userId == product.object.UserId ? <BotonCeleste onClick={goToEditarProducto}> Editar </BotonCeleste> : false }
+				{ user.userId == product.object.UserId ? <BotonCeleste style={{ color: "black" }} onClick={goToEditarProducto}> Editar </BotonCeleste> : false }
 				<CatalogueLink onClick={goToCatalogue}> Ver más prductos del vendedor </CatalogueLink>
 			</MostrarProductos>
 		);

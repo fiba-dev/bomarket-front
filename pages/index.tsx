@@ -13,7 +13,7 @@ const Home: NextPage = () => {
 		<Root>
 			<Header></Header>
 			<ContainerProduct>
-				<Title> El mejor e-commerce </Title>
+				<Title> El mejor catálogo gratuito de Bolivia </Title>
 				<Buscar></Buscar>
 			</ContainerProduct>
 			<FeaturedProducts></FeaturedProducts>
