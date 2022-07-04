@@ -1,8 +1,8 @@
-import { Dropdown, MenuOption, Root } from "./styled";
+import { Dropdown, MenuOption, Root, Body } from "./styled";
 import { BotonFucsia } from "../../ui/buttons";
-import { Body, Large } from "../../ui/texts";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import { Large } from "../../ui/texts";
 import { UserIcon } from "ui/logos";
 import { useMe } from "lib/hooks";
 import { useState } from "react";
@@ -78,6 +78,22 @@ export function LoginDisplayAndButton() {
 						}}
 					>
 						<Body color="#343538">MI PERFIL</Body>
+					</MenuOption>
+					<MenuOption
+						onClick={() => {
+							router.push({ pathname: "/search" });
+							setUserActive(!userActive);
+						}}
+					>
+						<Body color="#343538"> BUSCAR </Body>
+					</MenuOption>
+					<MenuOption
+						onClick={() => {
+							router.push({ pathname: "/upload-product" });
+							setUserActive(!userActive);
+						}}
+					>
+						<Body color="#343538"> PUBLICAR PRODUCTO </Body>
 					</MenuOption>
 					<MenuOption
 						onClick={() => {
