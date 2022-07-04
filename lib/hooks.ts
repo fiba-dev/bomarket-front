@@ -114,7 +114,7 @@ export async function uploadOrEditProduct(productData: productData) {
   let description = productData.description;
 
   if (productData.id) {
-    return await fetchApi("/me/uploadProduct", {
+    return await fetchApi(`/products/${id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: { id, name, price, description, category, stock, images }
@@ -127,7 +127,7 @@ export async function uploadOrEditProduct(productData: productData) {
     });
 
   } else {
-    return await fetchApi("/me/uploadProduct", {
+    return await fetchApi("/products", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: { name, price, description, category, stock, images }
