@@ -1,13 +1,13 @@
-import { MyDropzone } from "components/dropzone";
-import { uploadOrEditProduct } from "lib/hooks";
+import { uploadOrEditProduct, deleteProduct } from "lib/hooks";
 import { BodyBold, Subtitle, Large } from "ui/texts";
+import { MyDropzone } from "components/dropzone";
 import { FormProd, Select } from "./styled";
 import { Placeholder } from "ui/textFields";
 import { BotonNaranja } from "ui/buttons";
 import { useForm } from "react-hook-form";
 import { useProducts } from "lib/hooks";
 import { useRouter } from "next/router";
-import React, { MouseEventHandler, ReactEventHandler, useState } from "react";
+import React, { useState } from "react";
 import swal from 'sweetalert';
 
 
@@ -44,10 +44,21 @@ export function EditProduct() {
         }
     }
 
-    function deleteProduct(e: any) {
+    async function notifyDeleteProduct(e: any) {
         e.preventDefault();
-        swal({ title: "Yes!", text: "Producto Eliminado!", icon: "success" });
-        // await router.push("/");
+
+        swal({
+            title: "Hey!",
+            text: "Vas a eliminar un producto, estás segur@?",
+            buttons: [true, "Eliminar"],
+
+        }).then(async (response) => {
+
+            if (response) {
+                await deleteProduct((router.query.productId as string));
+                await router.push("/");
+            }
+        });
     }
 
     return <FormProd onSubmit={handleSubmit(onSubmit) }>
@@ -94,7 +105,7 @@ export function EditProduct() {
         </div>
 
         <BotonNaranja> Guardar </BotonNaranja>
-        <Large onClick={deleteProduct} style={{ color: "red", marginTop: 25, marginBottom: 10, cursor: "pointer" }}> Eliminar </Large>
+        <Large onClick={notifyDeleteProduct} style={{ color: "red", marginTop: 25, marginBottom: 10, cursor: "pointer" }}> Eliminar </Large>
         <BodyBold onClick={() => router.push("/")} style={{ color: "black", paddingTop: 10, cursor: "pointer" }}> Cancelar </BodyBold>
 
     </FormProd>

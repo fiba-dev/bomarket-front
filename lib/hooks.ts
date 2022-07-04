@@ -140,3 +140,19 @@ export async function uploadOrEditProduct(productData: productData) {
     });
   }
 }
+
+export async function deleteProduct(productId: string) {
+
+  if (productId) {
+    return await fetchApi(`/products/${productId.toString()}`, {
+      method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+
+    }).catch(() => {
+      swal({ title: "Ups...", text: "Algo salió mal", icon: "error" });
+
+    }).then(() => {
+      swal({ title: "Yes!", text: "Producto eliminado!", icon: "success" });
+    });
+  }
+}
