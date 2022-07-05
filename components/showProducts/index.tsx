@@ -69,13 +69,13 @@ export function ShowProducts() {
 
 	if (products) {
 		const results =
-			product.results.length == 0 ? "No se encontraron Resultados" : "";
+			product?.results.length == 0 ? "No se encontraron Resultados" : "";
 		let limit = q.limit ? parseInt(q.limit.toString()) : 5;
 		let offset = q.offset ? parseInt(q.offset.toString()) : 5;
-		const paginaActual = product.results.length == 0 ? "" : offset / 5 + 1;
+		const paginaActual = product?.results.length == 0 ? "" : offset / 5 + 1;
 		let verMas =
-			product.results.length > 0
-				? offset >= product.pagination.total - 5
+			product?.results.length > 0
+				? offset >= product?.pagination.total - 5
 					? "   "
 					: "Pagina Siguiente"
 				: "    ";
