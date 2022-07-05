@@ -1,7 +1,7 @@
-import { InstagramLogo, TwitterLogo } from "ui/logos";
-import { Body, Large } from "ui/texts";
 import { Root, RootLinks, RootMenu, RootRedes } from "components/footer/styled";
+import { InstagramLogo, TwitterLogo } from "ui/logos";
 import { useRouter } from "next/router";
+import { Body, Large } from "ui/texts";
 import { useMe } from "lib/hooks";
 
 export function Footer() {
@@ -20,8 +20,9 @@ export function Footer() {
 							router.push("/signin");
 						}}
 					>
-						<Body white>{login}</Body>
+						<Body white> {login} </Body>
 					</a>
+
 					<a>
 						<Body
 							white
@@ -32,6 +33,7 @@ export function Footer() {
 							Mi Perfil
 						</Body>
 					</a>
+
 					<a>
 						<Body
 							white
@@ -42,6 +44,18 @@ export function Footer() {
 							Buscar
 						</Body>
 					</a>
+
+					{ user ? <a>
+						<Body
+							white
+							onClick={() => {
+								router.push(`/catalogue/${user?.userId}`);
+							}}
+						>
+							Mi Catálogo
+						</Body>
+					</a> : false }
+
 					{ user ? <a>
 						<Body
 							white
@@ -51,7 +65,8 @@ export function Footer() {
 						>
 							Publicar Producto
 						</Body>
-					</a> : false } 
+					</a> : false }
+
 					<a>
 						<Body
 							white
@@ -63,12 +78,14 @@ export function Footer() {
 						</Body>
 					</a>
 				</RootMenu>
+
 				<RootRedes>
 					<Large white>Redes</Large>
 					<TwitterLogo></TwitterLogo>
 					<InstagramLogo></InstagramLogo>
 				</RootRedes>
 			</RootLinks>
+
 			<Body white>©2022 BoMarket</Body>
 		</Root>
 	);

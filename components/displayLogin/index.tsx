@@ -106,6 +106,13 @@ export function LoginDisplayAndButton() {
 					>
 						<Body color="#343538"> BUSCAR </Body>
 					</MenuOption>
+					{ user ? <MenuOption
+						onClick={() => {
+							router.push({ pathname: `/catalogue/${user?.userId}` });
+							setUserActive(!userActive);
+						}}>
+						MI CATÁLOGO
+					</MenuOption> : false }
 					<MenuOption
 						onClick={() => {
 							router.push({ pathname: "/upload-product" });
