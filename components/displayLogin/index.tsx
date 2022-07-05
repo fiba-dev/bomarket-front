@@ -39,7 +39,7 @@ export function LoginDisplay() {
 	} else {
 		return (
 			<DisplayLogin>
-				<BotonFucsia
+				<BotonFucsia style={{ backgroundColor: "red", width: 280, fontSize: 25 }}
 					onClick={() => {
 						router.push("/signin");
 					}}
