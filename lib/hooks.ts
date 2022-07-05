@@ -22,8 +22,6 @@ type userData = {
 
 export async function editMe({ name, adress, phone, photo, description }: userData) {
 
-  console.log({ name, adress, phone, photo, description });
-
   return await fetchApi("/me", {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },
