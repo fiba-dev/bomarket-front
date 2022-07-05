@@ -11,7 +11,6 @@ export const Form = styled.form`
 
 	flex-direction: column;
 	align-items: center;
-	margin-top:20px;
 	display: flex;
 
 	.error-style {

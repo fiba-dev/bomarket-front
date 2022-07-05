@@ -74,45 +74,21 @@ export function useSearchProducts(q: any, offset: any = 0, limit: any = 5) {
   return data;
 }
 
-export function useFeaturedProducts(
-  q: any = " ",
-  offset: any = 0,
-  limit: any = 50
-) {
-  const url = q
-    ? +"/search?q=" + q + "&offset=" + offset + "&limit=" + limit
-    : null;
-  const { data, error } = useSWRImmutable(
-    () =>
-      q ? "/search?q=" + q + "&offset=" + offset + "&limit=" + limit : null,
-    fetchApi
-  );
-  if (data) {
-    data.results.sort(function (a: any, b: any) {
-      return a["Unit cost"] - b["Unit cost"];
-    });
-    let cortado = data.results.slice(0, 3);
-    console.log("SOY CORTADO", cortado);
-
-    return cortado;
-  }
-}
-
 export async function createOrder(productId: any, quantity: number) {
   return productId
     ? await fetchApi("/order?productId=" + productId, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: { quantity },
-      })
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: { quantity },
+    })
     : false;
 }
 
 export async function getOrder(externalReference: any) {
   return externalReference
     ? await fetchApi("/order/" + externalReference, {
-        headers: { "Content-Type": "application/json" },
-      })
+      headers: { "Content-Type": "application/json" },
+    })
     : false;
 }
 
@@ -124,6 +100,16 @@ export async function getUserCatalogue(userId: string) {
     });
     return catalogue;
   }
+}
+
+export async function featuredProducts() {
+
+  const catalogue = await fetchApi(`/featuredProducts`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+
+  return catalogue;
 }
 
 type productData = {

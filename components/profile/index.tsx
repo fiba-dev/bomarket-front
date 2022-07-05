@@ -9,6 +9,7 @@ import { BotonNaranja } from "ui/buttons";
 import React, { useState } from "react";
 import router from "next/router";
 import swal from 'sweetalert';
+import Link from "next/link";
 
 export function Profile() {
 	const {
@@ -42,6 +43,12 @@ export function Profile() {
 		}
 	}
 
+	async function copyLink(e: any) {
+		e.preventDefault();
+		await navigator.clipboard.writeText(`bomarket.vercel.app/catalogue/${user?.userId}`);
+		await swal({ title: "Yeah!", text: "Mensaje copiado!", icon: "success" });
+	}
+
 	if (user) {
 		const { name, phone, adress, description } = user
 		let userPhoto = user.photo ? user.photo.secure_url : "https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg"
@@ -51,6 +58,7 @@ export function Profile() {
 				<Subtitle> Perfil </Subtitle>
 				<UserPhoto src={userPhoto} ></UserPhoto>
 				<Large> {user.email} </Large>
+				<Large style={{ color: "darkorange", textDecoration: "underline", margin: "20px 0px" }} onClick={copyLink}> Clickeame y compartí tu catálogo! </Large>
 				<Form onSubmit={handleSubmit(handlerUserForm)}>
 					<Placeholder
 						profile="true"

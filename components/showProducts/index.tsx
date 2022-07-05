@@ -1,27 +1,23 @@
 import { MostrarProductos, NavContainer, Root, SpinnerContainer, Total } from "./styled";
 import { useGetPagination } from "lib/hooks";
-import { SpinnerLoader } from "ui/loaders";
-import { Pagination } from "ui/pagination";
-import { useRouter } from "next/router";
-import { MainButton, PageButton } from "ui/buttons";
-import { Body, Subtitle } from "ui/texts";
-import { Card } from "ui/card";
 import { useEffect, useState } from "react";
+import { SpinnerLoader } from "ui/loaders";
+import { Body, Subtitle } from "ui/texts";
+import { useRouter } from "next/router";
 import { Filter } from "ui/textFields";
 import { Next, Prev } from "ui/logos";
+import { Card } from "ui/card";
 
 export function ShowProducts() {
 	const router = useRouter();
 	const q = router.query.q as string;
-	const [products, setProducts] = useState() as any
+	const [products, setProducts] = useState() as any;
 
 	const { data, offset, setQ, setOffset } = useGetPagination();
 
 	useEffect(() => {
-		setProducts(data)
-	}, [data])
-
-	console.log("PRODUCTOS", products);
+		setProducts(data);
+	}, [data]);
 
 
 	useEffect(() => {
