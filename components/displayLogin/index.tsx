@@ -71,11 +71,11 @@ export function LoginDisplayAndButton() {
 
 			{ user ?
 
-				<UserDisplay onClick={handleClick}>
+				<UserDisplay style={{ cursor: "pointer" }} onClick={handleClick}>
 
 					<Body style={{ color: "#FEFEFE"}}> { user?.name ? user?.name : "" } </Body>
 
-					{ user?.photo["secure_url"] ?
+					{ user?.photo ?
 					
 						<ProfilePicture src={user?.photo["secure_url"]} />
 						:
