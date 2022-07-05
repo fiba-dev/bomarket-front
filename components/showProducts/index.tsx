@@ -82,8 +82,8 @@ export function ShowProducts() {
 			</Root>
 		);
 	} else {
-		return <SpinnerContainer>
-			<Subtitle> ¡Buscá el producto que querés! </Subtitle>
+		return <SpinnerContainer style={{ padding: 12 }}>
+			<Subtitle style={{ textAlign: "center" }}> ¡Buscá el producto que querés! </Subtitle>
 			<SpinnerLoader />
 		</SpinnerContainer>
 	}

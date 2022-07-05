@@ -9,8 +9,8 @@ const MobileWindows = styled.div`
 	background-image: url("https://res.cloudinary.com/dx1fmmltu/image/upload/v1656541757/pic_sj6lgm.jpg");
 	background-size: cover;
 	border-radius: 15px;
-	height: 400px;
-	width: 365px;
+	height: 100vh;
+	width: 100%;
 
 	position: absolute;
 	right: 0px;
@@ -21,6 +21,10 @@ const MobileWindows = styled.div`
 	align-items: center;
 	display: flex;
 	z-index: 1;
+
+	@media(min-width: 500px) {
+		display: none;
+	}
 `;
 
 export function MobileMenuWindows(props: any) {
@@ -71,6 +75,14 @@ export function MobileMenuWindows(props: any) {
 				>
 					Buscar
 				</MobilBoton>
+				{ user ? <MobilBoton
+					onClick={() => {
+						router.push(`/catalogue/${user?.userId}`), props.cambiarEstado(!props.estado);
+					}}
+				>
+					Mi Catálogo
+				</MobilBoton> : false }
+
 				{ user ? <MobilBoton
 					onClick={() => {
 						router.push("/upload-product"), props.cambiarEstado(!props.estado);

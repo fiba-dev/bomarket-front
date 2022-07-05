@@ -20,9 +20,9 @@ export function HeaderSearch() {
 						setStateWindows(!stateWindows);
 					}}
 				></MenuBurger>
+				<LoginDisplayAndButton></LoginDisplayAndButton>
 			</HeaderContainer>
 			<BuscarOscuro></BuscarOscuro>
-			<LoginDisplayAndButton></LoginDisplayAndButton>
 		</HeaderContainerSearch>
 	);
 }
