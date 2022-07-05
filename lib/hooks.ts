@@ -12,7 +12,18 @@ export function refreshPage() {
   window.location.reload();
 }
 
-export async function editMe({ name, adress, phone, photo, description }: any) {
+type userData = {
+  description: string,
+  adress: string,
+  photo: string,
+  phone: number,
+  name: string,
+}
+
+export async function editMe({ name, adress, phone, photo, description }: userData) {
+
+  console.log({ name, adress, phone, photo, description });
+
   return await fetchApi("/me", {
     method: "PATCH",
     headers: { "Content-Type": "application/json" },

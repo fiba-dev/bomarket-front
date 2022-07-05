@@ -1,9 +1,8 @@
-import { Body, UserDisplay, ProfilePicture } from "./styled";
 import { BotonCerrarMobil, BotonMobil } from "ui/buttons";
+import { UserDisplay, ProfilePicture } from "./styled";
 import { LoginDisplay } from "components/displayLogin";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-import { UserIcon } from "ui/logos";
 import { useMe } from "lib/hooks";
 
 const MobileWindows = styled.div`
@@ -50,7 +49,7 @@ export function MobileMenuWindows(props: any) {
 					false
 				}
 
-				{!user.email ? <BotonMobil
+				{!user ? <BotonMobil
 					onClick={() => {
 						router.push("/signin"), props.cambiarEstado(!props.estado);
 					}}

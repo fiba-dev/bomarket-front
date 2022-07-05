@@ -8,10 +8,19 @@ export const Root = styled.div`
 `
 
 export const Form = styled.form`
-	display: flex;
+
 	flex-direction: column;
 	align-items: center;
 	margin-top:20px;
+	display: flex;
+
+	.error-style {
+        flex-direction: column;
+        margin-bottom: 25px;
+        align-items: center;
+        display: flex;
+        color: red;
+    }
 `;
 
 export const UserPhoto: any = styled.div`

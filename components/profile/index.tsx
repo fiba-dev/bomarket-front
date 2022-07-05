@@ -29,9 +29,10 @@ export function Profile() {
 		const name = e.name ? e.name : user.name;
 		const adress = e.adress ? e.adress : user.adress;
 		const phone = e.phone ? e.phone : user.phone;
+		const img = image ? image : user.photo?.url;
 		const description = e.description ? e.description : user.description;
 
-		let res = await editMe({ name, adress, phone: parseInt(phone), photo: image, description });
+		let res = await editMe({ name, adress, phone: parseInt(phone), photo: img, description });
 		
 		if (res == true) {
 			swal({ title: "Yes!", text: "Modificado con éxito!", icon: "success" });
@@ -55,26 +56,35 @@ export function Profile() {
 						profile="true"
 						placeholder={"Nombre: " + `${name ? name : "Sin información"}`}
 						type="text"
-						{...register("name")}
-					></Placeholder>
+						{...register("name", { maxLength: 12 } )}
+						></Placeholder>
+						{ errors["name"] && <span className="error-style"> Hasta 12 caracteres! </span> }
+
 					<Placeholder
 						profile="true"
 						placeholder={"Dirección: " + `${adress ? adress : "Sin información"}`}
 						type="text"
 						{...register("adress")}
 					></Placeholder>
+					{ errors["adress"] && <span className="error-style"> Ocurrió un error </span> }
+
 					<Placeholder
 						profile="true"
 						placeholder={"Telefono: " + `${phone ? phone : "Sin información"}`}
 						type="tel"
 						{...register("phone")}
 					></Placeholder>
+					{ errors["phone"] && <span className="error-style"> Ocurrió un error </span> }
+
 					<MyDropzone img={getImage}></MyDropzone>
+
 					<Textarea
 						profile="true"
 						placeholder={"Descripción: " + `${description ? description : "Sin información"}`}
 						{...register("description")}
 					></Textarea>
+					{ errors["description"] && <span className="error-style"> Ocurrió un error </span> }
+
 					<BotonNaranja profile="true" >Guardar</BotonNaranja>
 				</Form>
 			</Root>

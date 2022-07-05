@@ -22,7 +22,7 @@ export function LoginDisplay() {
 	const router = useRouter();
 	let user = useMe();
 
-	if (user.email) {
+	if (user) {
 		return (
 			<DisplayLogin>
 				<Body white> {user.email} </Body>
