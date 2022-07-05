@@ -2,6 +2,8 @@ import { Body, Subtitle } from "../texts";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import User from "./user.svg";
+import PrevIcon from "./prev.svg";
+import NextIcon from "./next.svg";
 
 export const UserIcon = styled(User)`
 	stroke: #fafafa;
@@ -83,7 +85,7 @@ export function Twitter() {
 }
 
 export function TwitterLogo() {
-	
+
 	return (
 		<ContainerRedes
 			target="_blank"
@@ -192,3 +194,13 @@ export function LogoPrincipal() {
 	);
 }
 
+export const Prev = styled(PrevIcon)`
+  stroke: #8a8a8a;
+  width: 20px;
+  height: 20px;
+`;
+export const Next = styled(NextIcon)`
+  stroke: #8a8a8a;
+  width: 20px;
+  height: 20px;
+`;

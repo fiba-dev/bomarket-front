@@ -85,7 +85,7 @@ export function ShowCatalogue() {
 						<ProfilePicture src={user?.photo["secure_url"]} />
 
 						<div style={{ minWidth: 150, maxWidth: 400 }}>
-							<h5> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam est placeat maxime, corrupti id natus accusamus voluptatum minima. Quibusdam deleniti cum sapiente laborum eos aliquam autem praesentium architecto corrupti consequatur! </h5>
+							<h5> {userCatalogue?.description} </h5>
 							<WhatsappButton number={user?.phone.toString()} />
 						</div>
 					</div>
