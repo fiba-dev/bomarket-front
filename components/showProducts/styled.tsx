@@ -31,3 +31,20 @@ export const SpinnerContainer = styled.div`
 	margin-top: 50px;
 	display: flex;
 `;
+
+export const Total = styled.div`
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+`;
+
+export const NavContainer = styled.div`
+  display: flex;
+  margin: 20px;
+  justify-content: space-around;
+  align-items: center;
+  min-width: 90px;
+`;
