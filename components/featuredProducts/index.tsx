@@ -1,5 +1,6 @@
-import { MostrarProductos, Root, Spinner } from "./styled";
+import { MostrarProductos, Root } from "./styled";
 import { useFeaturedProducts } from "lib/hooks";
+import { SpinnerLoader } from "ui/loaders";
 import { useRouter } from "next/router";
 import { Subtitle } from "ui/texts";
 import { Card } from "ui/card";
@@ -30,15 +31,6 @@ export function FeaturedProducts() {
 			</Root>
 		);
 	} else {
-		return <Spinner>
-			<div className="spinner">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</Spinner>;
+		return <SpinnerLoader />
 	}
 }

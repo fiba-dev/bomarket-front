@@ -1,6 +1,7 @@
-import { MostrarProductos, CatalogueLink, Spinner } from "./styled";
+import { MostrarProductos, CatalogueLink } from "./styled";
 import { BotonCeleste, WhatsappButton } from "ui/buttons";
 import { useProducts, useMe } from "lib/hooks";
+import { SpinnerLoader } from "ui/loaders";
 import { useRouter } from "next/router";
 import { Item } from "ui/card";
 
@@ -39,15 +40,6 @@ export function ShowItem() {
 			</MostrarProductos>
 		);
 	} else {
-		return <Spinner>
-			<div className="spinner">
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-				<div></div>
-			</div>
-		</Spinner>;
+		return <SpinnerLoader />
 	}
 }

@@ -1,5 +1,5 @@
+import { uploadOrEditProduct,syncBothDB } from "lib/hooks";
 import { MyDropzone } from "components/dropzone";
-import { uploadOrEditProduct } from "lib/hooks";
 import { BodyBold, Subtitle } from "ui/texts";
 import { Placeholder } from "ui/textFields";
 import { FormProd, Select } from "./styled";
@@ -34,6 +34,7 @@ export function UploadProduct() {
 
         if (image) {
             await uploadOrEditProduct(productData);
+            await syncBothDB();
             await router.push("/");
 
         } else {

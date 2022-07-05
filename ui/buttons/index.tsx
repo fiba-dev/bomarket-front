@@ -4,38 +4,42 @@ import { Subtitle, Title } from "../texts";
 
 export const MainButton = styled.button`
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-	font-size: 16px;
+	border-radius: 8px;
+	text-align: center;
 	font-weight: 700;
+	font-size: 16px;
+	cursor: pointer;
+	color: white;
 	width: 350px;
 	height: 37px;
-	text-align: center;
-	color: white;
-	border-radius: 8px;
 	margin: 5px;
 	border: none;
-	cursor: pointer;
 `;
 
 export const BotonAzul = styled(MainButton)`
 	background-color: var(--azul);
+
 	:hover {
 		background-color: var(--fucsia);
 	}
 `;
 export const BotonCeleste = styled(MainButton)`
-	cursor: pointer;
 	background-color: var(--celeste);
+	cursor: pointer;
 	height: 63px;
+
 	:hover {
 		background-color: var(--fucsia);
 	}
 `;
 export const BotonNaranja = styled(MainButton)<{ buscar?: any; profile?: any }>`
-	color: black;
 	background-color: var(--naranja);
+	color: black;
+
 	:hover {
 		background-color: var(--fucsia);
 	}
+
 	@media (min-width: 1080px) {
 		${(props) =>
 			props.buscar &&
@@ -51,20 +55,25 @@ export const BotonNaranja = styled(MainButton)<{ buscar?: any; profile?: any }>`
 `;
 export const BotonFucsia = styled(MainButton)`
 	background-color: var(--fucsia);
+	font-size: 30px;
 	cursor: pointer;
+	height: auto;
+	padding: 8px;
+
 	:hover {
 		background-color: var(--celeste);
 	}
 	@media (min-width: 1080px) {
-		width: 175px;
 		display: block;
+		width: 175px;
 	}
 `;
 
 export const MobilBoton = styled.button`
 	background-color: transparent;
-	border: none;
 	margin-bottom: 31px;
+	border: none;
+
 	cursor: pointer;
 	h2 {
 		:hover {
@@ -74,11 +83,12 @@ export const MobilBoton = styled.button`
 `;
 export const MobilBotonClose = styled.button`
 	background-color: transparent;
-	border: none;
 	margin-bottom: 31px;
 	position: absolute;
-	top: 20px;
+	border: none;
 	right: 20px;
+	top: 20px;
+
 	cursor: pointer;
 	h1 {
 		:hover {
@@ -88,9 +98,10 @@ export const MobilBotonClose = styled.button`
 `;
 export const PageButton = styled.a`
 	color: var(--naranja);
-	min-width: 100px;
 	text-align: center;
+	min-width: 100px;
 	cursor: pointer;
+
 	:hover {
 		color: var(--fucsia);
 	}

@@ -1,4 +1,4 @@
-import { Dropdown, MenuOption, Root, Body } from "./styled";
+import { Dropdown, MenuOption, Root, Body, UserDisplay, ProfilePicture } from "./styled";
 import { BotonFucsia } from "../../ui/buttons";
 import { useRouter } from "next/router";
 import styled from "styled-components";
@@ -6,7 +6,6 @@ import { Large } from "../../ui/texts";
 import { UserIcon } from "ui/logos";
 import { useMe } from "lib/hooks";
 import { useState } from "react";
-
 
 const DisplayLogin = styled.div`
 	flex-direction: column;
@@ -53,8 +52,9 @@ export function LoginDisplay() {
 }
 
 export function LoginDisplayAndButton() {
-	const router = useRouter();
+
 	const [userActive, setUserActive] = useState(false)
+	const router = useRouter();
 	let user = useMe();
 
 	function handleClick() {
@@ -68,7 +68,26 @@ export function LoginDisplayAndButton() {
 
 	return (
 		<Root>
-			<UserIcon onClick={handleClick}></UserIcon>
+
+			{ user ?
+
+				<UserDisplay onClick={handleClick}>
+
+					<Body style={{ color: "#FEFEFE"}}> { user?.name ? user?.name : "" } </Body>
+
+					{ user?.photo["secure_url"] ?
+					
+						<ProfilePicture src={user?.photo["secure_url"]} />
+						:
+						<ProfilePicture src="https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg" onClick={handleClick} />
+					}
+				</UserDisplay>
+				
+				:
+
+				<UserIcon onClick={handleClick} />
+			}
+
 			{userActive ? (
 				<Dropdown>
 					<MenuOption

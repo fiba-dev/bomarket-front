@@ -48,7 +48,21 @@ export const Body = styled(Large)<{ white?: any }>`
 `;
 
 export const MenuOption = styled.a`
-  background-color: #ffffff;
-  padding: 12px 30px;
   border-bottom: 1px solid #e0e0e0;
+  background-color: #FEFEFE;
+  padding: 12px 30px;
+`;
+
+export const UserDisplay = styled.div`
+
+  align-items: center;
+  display: flex;
+  gap: 15px;
+`;
+
+export const ProfilePicture = styled.img`
+
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
 `;
