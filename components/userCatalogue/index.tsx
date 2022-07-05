@@ -1,6 +1,6 @@
-import { MostrarProductos, Root } from "./styled";
+import { MostrarProductos, Root, ProfilePicture } from "./styled";
 import React, { useEffect, useState } from "react";
-import { getUserCatalogue } from "lib/hooks";
+import { getUserCatalogue, useMe } from "lib/hooks";
 import { WhatsappButton } from "ui/buttons";
 import { SpinnerLoader } from "ui/loaders";
 import { Pagination } from "ui/pagination";
@@ -10,6 +10,8 @@ import { Subtitle } from "ui/texts";
 import { Card } from "ui/card";
 
 export function ShowCatalogue() {
+
+	const user = useMe();
     const router = useRouter();
 	const query = router.query;
     const [ userCatalogue, setUserCatalogue ] = useState(null as any);
@@ -76,7 +78,21 @@ export function ShowCatalogue() {
 		return (
 			<Root>
 				<Subtitle> {results} </Subtitle>{" "}
-				<WhatsappButton number={phone} />
+				
+				{ user ? 
+
+					<div style={{ display: "flex", flexDirection: "row", padding: "30px 15px" }}>
+						<ProfilePicture src={user?.photo["secure_url"]} />
+
+						<div style={{ minWidth: 150, maxWidth: 400 }}>
+							<h5> Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam est placeat maxime, corrupti id natus accusamus voluptatum minima. Quibusdam deleniti cum sapiente laborum eos aliquam autem praesentium architecto corrupti consequatur! </h5>
+							<WhatsappButton number={user?.phone.toString()} />
+						</div>
+					</div>
+					:
+					<ProfilePicture src="https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg" />
+					}
+
 				<MostrarProductos>
 					{userCatalogue.results.map((r: any) => (
 						<Card

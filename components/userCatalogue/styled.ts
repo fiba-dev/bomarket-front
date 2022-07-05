@@ -20,3 +20,12 @@ export const Root = styled.form`
 	display: flex;
 	width: 100%;
 `;
+
+export const ProfilePicture = styled.img`
+
+	border-radius: 50%;
+	border: 1px solid;
+	height: 100px;
+	margin: 10px;
+	width: 100px;
+`;

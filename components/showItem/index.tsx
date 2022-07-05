@@ -11,9 +11,6 @@ export function ShowItem() {
 	const itemId = router.query;
 	const product = useProducts(itemId.itemId);
 
-	console.log("ESTO ES USER: ", user)
-	console.log("ESTO ES PRODUCT: ", product)
-
 	function goToCatalogue(e: any) {
 		e.preventDefault();
 		router.push(`/catalogue/${product.object.UserId}`);
@@ -36,6 +33,7 @@ export function ShowItem() {
 					description={product.object.Description}
 				></Item>
 				{ user.userId == product.object.UserId ? <BotonCeleste style={{ color: "black" }} onClick={goToEditarProducto}> Editar </BotonCeleste> : false }
+				<WhatsappButton number={product.object?.phone.toString()} />
 				<CatalogueLink onClick={goToCatalogue}> Ver más prductos del vendedor </CatalogueLink>
 			</MostrarProductos>
 		);

@@ -1,24 +1,45 @@
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
-	display: flex;
 	flex-direction: row;
+	display: flex;
 	height: 84px;
 
-	background-color: black;
 	justify-content: space-between;
-	padding: 10px;
+	background-color: black;
 	align-items: center;
+	padding: 10px;
 `;
+
 export const HeaderContainerSearch = styled.div`
-	display: flex;
-	flex-direction: column;
+
 	background-color: black;
 	width: 100%;
-	@media (min-width: 1080px) {
-		justify-content: space-between;
-		padding: 10px;
-		flex-direction: row;
-		align-items: center;
+
+	@media(min-width: 1080px) {
+
+		form {
+			position: absolute;
+			left: 50vh;
+			top: 10px;
+		}
+	}
+
+	@media(min-width: 1150px) {
+
+		form {
+			position: absolute;
+			left: 55vh;
+			top: 10px;
+		}
+	}
+
+	@media(min-width: 1260px) {
+
+		form {
+			position: absolute;
+			left: 60vh;
+			top: 10px;
+		}
 	}
 `;

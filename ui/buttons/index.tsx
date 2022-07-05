@@ -127,16 +127,14 @@ export function BotonCerrarMobil({ onClick }: any) {
 
 const Styles = styled(ReactWhatsapp)`
 
-	margin-right: 10px;
-	position: inherit;
-	margin-top: 10px;
+	text-decoration: underline;
 	cursor: pointer;
-	align-self: end;
-	height: 45px;
-	width: 45px;
+	color: #008A5A;
+	height: auto;
+	width: 200px;
 `;
 
 export function WhatsappButton({ number }: any) {
 
-	return <Styles number={number.toString()} message="Trying from the web" element="img" src="https://res.cloudinary.com/dx1fmmltu/image/upload/v1656622795/whatsapp_rjprep.png" />
+	return <Styles number={number.toString()} message="Trying from the web" element="h5"> Contactame por Whatsapp! </Styles>
 }
