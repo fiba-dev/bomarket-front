@@ -72,9 +72,16 @@ export function LoginDisplayAndButton() {
 
 			{ user ?
 
-				<UserDisplay>
-					<Body style={{ color: "#FEFEFE"}}> { user?.name } </Body>
-					<ProfilePicture src={user?.photo["secure_url"]} onClick={handleClick} />
+				<UserDisplay onClick={handleClick}>
+
+					<Body style={{ color: "#FEFEFE"}}> { user?.name ? user?.name : "" } </Body>
+
+					{ user?.photo["secure_url"] ?
+					
+						<ProfilePicture src={user?.photo["secure_url"]} />
+						:
+						<ProfilePicture src="https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg" onClick={handleClick} />
+					}
 				</UserDisplay>
 				
 				:

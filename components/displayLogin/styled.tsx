@@ -48,9 +48,9 @@ export const Body = styled(Large)<{ white?: any }>`
 `;
 
 export const MenuOption = styled.a`
-  background-color: #ffffff;
-  padding: 12px 30px;
   border-bottom: 1px solid #e0e0e0;
+  background-color: #FEFEFE;
+  padding: 12px 30px;
 `;
 
 export const UserDisplay = styled.div`

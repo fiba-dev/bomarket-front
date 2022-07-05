@@ -83,7 +83,7 @@ export function Twitter() {
 }
 
 export function TwitterLogo() {
-	const router = useRouter();
+	
 	return (
 		<ContainerRedes
 			target="_blank"

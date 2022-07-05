@@ -23,3 +23,11 @@ export const Root = styled.div`
 	display: flex;
 	width: 100%;
 `;
+
+export const SpinnerContainer = styled.div`
+
+	flex-direction: column;
+	align-items: center;
+	margin-top: 50px;
+	display: flex;
+`;

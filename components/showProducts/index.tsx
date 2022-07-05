@@ -1,4 +1,4 @@
-import { MostrarProductos, Root } from "./styled";
+import { MostrarProductos, Root, SpinnerContainer } from "./styled";
 import { useSearchProducts } from "lib/hooks";
 import { SpinnerLoader } from "ui/loaders";
 import { Pagination } from "ui/pagination";
@@ -82,6 +82,9 @@ export function ShowProducts() {
 			</Root>
 		);
 	} else {
-		return <SpinnerLoader />
+		return <SpinnerContainer>
+			<Subtitle> ¡Buscá el producto que querés! </Subtitle>
+			<SpinnerLoader />
+		</SpinnerContainer>
 	}
 }
