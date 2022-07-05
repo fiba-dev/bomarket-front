@@ -3,7 +3,8 @@ import { Large } from "../../ui/texts";
 
 export const Root = styled.div`
   display: none;
-  @media (min-width: 1080px) {
+
+  @media (min-width: 500px) {
     padding-right:10px;
 		display: flex
 	}

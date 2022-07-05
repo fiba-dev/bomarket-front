@@ -44,7 +44,7 @@ const Burger = styled.div`
 			fill: var(--fucsia);
 		}
 	}
-	@media (min-width: 1080px) {
+	@media (min-width: 500px) {
 		display: none;
 	}
 `;
