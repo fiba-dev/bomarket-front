@@ -46,3 +46,37 @@ export const Textarea = styled.textarea<{ profile?: any }>`
 			`}
 	}
 `;
+
+export const LabelFilter = styled.label`
+  padding: 10px;
+  padding-right: 50px;
+  border: 1px solid #e8e8e8;
+  font-size: 13px;
+  font-weight: 300;
+`;
+
+export const Select = styled.select`
+  padding: 9px;
+  padding-right: 60px;
+  border-left: none;
+  border: 1px solid #e8e8e8;
+  background-color: #fafafa;
+`;
+
+export const Option = styled.option`
+  font-size: 13px;
+  font-weight: 300;
+`;
+
+export function Filter({ label, onChange }: any) {
+	return (
+		<label>
+			<LabelFilter>{label}</LabelFilter>
+			<Select onChange={onChange}>
+				<Option value="Seleccionar">Seleccionar </Option>
+				<Option value="Mayor">Mayor precio</Option>
+				<Option value="Menor">Menor precio</Option>
+			</Select>
+		</label>
+	);
+}

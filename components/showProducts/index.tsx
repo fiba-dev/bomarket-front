@@ -3,14 +3,21 @@ import { useSearchProducts } from "lib/hooks";
 import { SpinnerLoader } from "ui/loaders";
 import { Pagination } from "ui/pagination";
 import { useRouter } from "next/router";
-import { PageButton } from "ui/buttons";
+import { MainButton, PageButton } from "ui/buttons";
 import { Subtitle } from "ui/texts";
 import { Card } from "ui/card";
+import { useEffect, useState } from "react";
+import { Filter } from "ui/textFields";
 
 export function ShowProducts() {
 	const router = useRouter();
 	const q = router.query;
-	const product = useSearchProducts(q.q, q.offset, q.limit);
+	const [products, setProducts] = useState() as any
+	let product = useSearchProducts(q.q, q.offset, q.limit);
+
+	useEffect(() => {
+		setProducts(product)
+	}, [product])
 
 	function VerMenos() {
 		const q: any = router.query;
@@ -44,7 +51,23 @@ export function ShowProducts() {
 		}
 	}
 
-	if (product) {
+	function handleSort(e: any) {
+		if (e.target.value == "Mayor") {
+			let mayor = products.results.sort((a: any, b: any) => {
+				return b["Unit cost"] - a["Unit cost"];
+			})
+
+			setProducts({ ...products, results: mayor })
+		}
+		if (e.target.value == "Menor") {
+			let menor = products.results.sort((a: any, b: any) => {
+				return a["Unit cost"] - b["Unit cost"];
+			})
+			setProducts({ ...products, results: menor })
+		}
+	}
+
+	if (products) {
 		const results =
 			product.results.length == 0 ? "No se encontraron Resultados" : "";
 		let limit = q.limit ? parseInt(q.limit.toString()) : 5;
@@ -57,9 +80,13 @@ export function ShowProducts() {
 					: "Pagina Siguiente"
 				: "    ";
 		const verMenos = q.offset == (0).toString() ? "   " : "Pagina Anterior";
+		console.log("RESULTS", results);
+
+
 		return (
 			<Root>
-				<Subtitle>{results}</Subtitle>{" "}
+				<Subtitle>{results}</Subtitle>
+				{results == "" ? <Filter onChange={handleSort} label="Ordenar por"></Filter> : null}
 				<MostrarProductos>
 					{product.results.map((r: any) => (
 						<Card
@@ -74,7 +101,6 @@ export function ShowProducts() {
 					))}
 				</MostrarProductos>
 				<Pagination>
-					{" "}
 					<PageButton onClick={VerMenos}> {verMenos} </PageButton>
 					<PageButton> {paginaActual} </PageButton>
 					<PageButton onClick={VerMas}> {verMas} </PageButton>
