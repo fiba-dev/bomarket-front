@@ -1,7 +1,9 @@
+import { Body, UserDisplay, ProfilePicture } from "./styled";
 import { BotonCerrarMobil, BotonMobil } from "ui/buttons";
 import { LoginDisplay } from "components/displayLogin";
 import { useRouter } from "next/router";
 import styled from "styled-components";
+import { UserIcon } from "ui/logos";
 import { useMe } from "lib/hooks";
 
 const MobileWindows = styled.div`
@@ -34,6 +36,19 @@ export function MobileMenuWindows(props: any) {
 						props.cambiarEstado(!props.estado);
 					}}
 				></BotonCerrarMobil>
+
+				{ user ?
+				
+					<UserDisplay>
+						{ user?.photo ?
+							<ProfilePicture src={user?.photo["secure_url"]} />
+							:
+							<ProfilePicture src="https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg" />
+						}
+					</UserDisplay>
+				:
+					false
+				}
 
 				{!user.email ? <BotonMobil
 					onClick={() => {
