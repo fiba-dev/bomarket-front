@@ -63,6 +63,6 @@ export const UserDisplay = styled.div`
 export const ProfilePicture = styled.img`
 
   border-radius: 50%;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
 `;

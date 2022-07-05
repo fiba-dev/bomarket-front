@@ -81,6 +81,7 @@ export const MobilBoton = styled.button`
 		}
 	}
 `;
+
 export const MobilBotonClose = styled.button`
 	background-color: transparent;
 	margin-bottom: 31px;
@@ -96,6 +97,7 @@ export const MobilBotonClose = styled.button`
 		}
 	}
 `;
+
 export const PageButton = styled.a`
 	color: var(--naranja);
 	text-align: center;

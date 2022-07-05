@@ -1,19 +1,19 @@
-import { BotonCerrarMobil, BotonMobil } from "ui/buttons";
-import { UserDisplay, ProfilePicture } from "./styled";
+import { MobilBoton, BotonCerrar, UserDisplay, ProfilePicture } from "./styled";
 import { LoginDisplay } from "components/displayLogin";
 import { useRouter } from "next/router";
 import styled from "styled-components";
 import { useMe } from "lib/hooks";
 
 const MobileWindows = styled.div`
-	background-color: black;
-	height: 100vh;
-	width: 100vw;
+
+	background-image: url("https://res.cloudinary.com/dx1fmmltu/image/upload/v1656541757/pic_sj6lgm.jpg");
+	background-size: cover;
+	border-radius: 15px;
+	height: 400px;
+	width: 365px;
 
 	position: absolute;
-	bottom: 0px;
 	right: 0px;
-	left: 0px;
 	top: 0px;
 
 	justify-content: center;
@@ -30,11 +30,11 @@ export function MobileMenuWindows(props: any) {
 	return (
 		props.estado && (
 			<MobileWindows>
-				<BotonCerrarMobil
+				<BotonCerrar src="https://res.cloudinary.com/dx1fmmltu/image/upload/v1657028072/x_f18nw7.svg"
 					onClick={() => {
 						props.cambiarEstado(!props.estado);
 					}}
-				></BotonCerrarMobil>
+				/>
 
 				{ user ?
 				
@@ -49,35 +49,35 @@ export function MobileMenuWindows(props: any) {
 					false
 				}
 
-				{!user ? <BotonMobil
+				{!user ? <MobilBoton
 					onClick={() => {
 						router.push("/signin"), props.cambiarEstado(!props.estado);
 					}}
 				>
 					Ingresar
-				</BotonMobil> : null}
+				</MobilBoton> : null}
 
-				<BotonMobil
+				<MobilBoton
 					onClick={() => {
 						router.push("/profile"), props.cambiarEstado(!props.estado);
 					}}
 				>
 					Mi Perfil
-				</BotonMobil>
-				<BotonMobil
+				</MobilBoton>
+				<MobilBoton
 					onClick={() => {
 						router.push("/search"), props.cambiarEstado(!props.estado);
 					}}
 				>
 					Buscar
-				</BotonMobil>
-				{ user ? <BotonMobil
+				</MobilBoton>
+				{ user ? <MobilBoton
 					onClick={() => {
 						router.push("/upload-product"), props.cambiarEstado(!props.estado);
 					}}
 				>
 					Publicar Producto
-				</BotonMobil> : false }
+				</MobilBoton> : false }
 				<LoginDisplay />
 			</MobileWindows>
 		)

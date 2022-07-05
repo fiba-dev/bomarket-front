@@ -25,7 +25,7 @@ export function LoginDisplay() {
 	if (user) {
 		return (
 			<DisplayLogin>
-				<Body white> {user.email} </Body>
+				<Body> {user.email} </Body>
 				<a
 					onClick={() => {
 						router.push("/logout");
