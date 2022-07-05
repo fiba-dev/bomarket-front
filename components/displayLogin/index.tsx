@@ -7,7 +7,6 @@ import { UserIcon } from "ui/logos";
 import { useMe } from "lib/hooks";
 import { useState } from "react";
 
-
 const DisplayLogin = styled.div`
 	flex-direction: column;
 	align-items: center;

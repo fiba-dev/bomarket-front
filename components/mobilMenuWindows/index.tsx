@@ -1,8 +1,7 @@
-import { LoginDisplay } from "components/displayLogin";
 import { BotonCerrarMobil, BotonMobil } from "ui/buttons";
+import { LoginDisplay } from "components/displayLogin";
 import { useRouter } from "next/router";
 import styled from "styled-components";
-// import { BotonMobil } from "./styled"
 import { useMe } from "lib/hooks";
 
 const MobileWindows = styled.div`
