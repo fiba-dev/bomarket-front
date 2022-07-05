@@ -49,7 +49,7 @@ export function MobileMenuWindows(props: any) {
 					false
 				}
 
-				{!user.email ? <BotonMobil
+				{!user ? <BotonMobil
 					onClick={() => {
 						router.push("/signin"), props.cambiarEstado(!props.estado);
 					}}
