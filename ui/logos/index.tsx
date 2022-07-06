@@ -195,12 +195,15 @@ export function LogoPrincipal() {
 }
 
 export const Prev = styled(PrevIcon)`
-  stroke: #8a8a8a;
-  width: 20px;
-  height: 20px;
+	stroke: #8a8a8a;
+	cursor: pointer;
+	height: 55px;
+	width: 55px;
 `;
+
 export const Next = styled(NextIcon)`
-  stroke: #8a8a8a;
-  width: 20px;
-  height: 20px;
+	stroke: #8a8a8a;
+	cursor: pointer;
+	height: 55px;
+	width: 55px;
 `;
