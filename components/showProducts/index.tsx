@@ -83,7 +83,7 @@ export function ShowProducts() {
 		);
 	} else {
 		return <SpinnerContainer style={{ padding: 12 }}>
-			<Subtitle style={{ textAlign: "center" }}> ¡Buscá el producto que querés! </Subtitle>
+			<Subtitle style={{ textAlign: "center" }}> ¡Encuentra el producto que querés! </Subtitle>
 			<SpinnerLoader />
 		</SpinnerContainer>
 	}

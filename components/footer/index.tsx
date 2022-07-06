@@ -1,16 +1,13 @@
-import { Root, RootLinks, RootMenu, RootRedes } from "components/footer/styled";
-import { InstagramLogo, TwitterLogo } from "ui/logos";
+import { Root, RootLinks, RootMenu } from "components/footer/styled";
 import { useRouter } from "next/router";
-import { Body, Large } from "ui/texts";
 import { useMe } from "lib/hooks";
+import { Body } from "ui/texts";
 
 export function Footer() {
 	const user = useMe();
-	console.log("SOY USER", user);
-
+	const router = useRouter();
 	const login = user == false ? "Ingresar" : " ";
 
-	const router = useRouter();
 	return (
 		<Root>
 			<RootLinks>
@@ -78,15 +75,9 @@ export function Footer() {
 						</Body>
 					</a>
 				</RootMenu>
-
-				<RootRedes>
-					<Large white>Redes</Large>
-					<TwitterLogo></TwitterLogo>
-					<InstagramLogo></InstagramLogo>
-				</RootRedes>
 			</RootLinks>
 
-			<Body white>©2022 BoMarket</Body>
+			<Body white> ©2022 BoMarket </Body>
 		</Root>
 	);
 }

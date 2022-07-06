@@ -23,7 +23,7 @@ export function FeaturedProducts() {
 
 		return (
 			<Root>
-				<Subtitle>Productos destacados</Subtitle>
+				<Subtitle> Productos destacados </Subtitle>
 				<MostrarProductos>
 					{products?.map((r: any) => (
 						<Card
@@ -41,7 +41,7 @@ export function FeaturedProducts() {
 		);
 	} else {
 		return	<div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
-			<Subtitle style={{ paddingTop: 40 }}> Productos destacados! </Subtitle>
+			<Subtitle style={{ paddingTop: 40 }}> Productos destacados </Subtitle>
 			<SpinnerLoader />
 		</div>
 	}
