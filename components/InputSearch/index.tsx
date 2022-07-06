@@ -1,19 +1,26 @@
-import { BotonAzul, BotonNaranja } from "ui/buttons";
-import { Placeholder } from "ui/textFields";
-import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
 import { Root, RootOscuro } from "./styled";
+import { Placeholder } from "ui/textFields";
+import { BotonNaranja } from "ui/buttons";
+import { useForm } from "react-hook-form";
+import { useRouter } from "next/router";
 
 export function Buscar() {
 	const {
+		reset,
 		register,
 		handleSubmit,
-		formState: { errors },
+		formState,
+		formState: { isSubmitSuccessful }
 	} = useForm();
+
 	const router = useRouter();
-	const q = router.query;
 	const onSubmit = (data: any) => {
 		router.push("/search?q=" + data.q + "&offset=0&limit=5");
+		const q = data.q;
+		
+		if (formState.isSubmitSuccessful) {
+			reset({ q: '' });
+		}
 	};
 
 	return (
@@ -29,16 +36,23 @@ export function Buscar() {
 
 export function BuscarOscuro() {
 	const {
+		reset,
 		register,
 		handleSubmit,
-		watch,
-		formState: { errors },
+		formState,
+		formState: { isSubmitSuccessful }
 	} = useForm();
 	const router = useRouter();
-	const q = router.query;
+	
 	const onSubmit = (data: any) => {
 		router.push("/search?q=" + data.q + "&offset=0&limit=5");
+		const q = data.q;
+
+		if (formState.isSubmitSuccessful) {
+			reset({ q: '' });
+		}
 	};
+
 
 	return (
 		<RootOscuro onSubmit={handleSubmit(onSubmit)}>

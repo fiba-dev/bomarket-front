@@ -29,7 +29,7 @@ const MobileWindows = styled.div`
 
 export function MobileMenuWindows(props: any) {
 	const router = useRouter();
-	let user = useMe();
+	const user = useMe();
 
 	return (
 		props.estado && (
