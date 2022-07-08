@@ -30,12 +30,6 @@ const ContainerLogo = styled.div`
 	display: flex;
 	height: 46px;
 	width: 207px;
-
-	h2 {
-		:hover {
-			color: var(--fucsia);
-		}
-	}
 `;
 
 const Burger = styled.div`
@@ -189,7 +183,7 @@ export function LogoPrincipal() {
 			}}
 		>
 			<CartLogo />
-			<Subtitle white> BoMarket</Subtitle>
+			<Subtitle style={{ userSelect: "none" }} white> BoMarket</Subtitle>
 		</ContainerLogo>
 	);
 }
