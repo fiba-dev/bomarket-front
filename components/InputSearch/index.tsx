@@ -60,7 +60,7 @@ export function BuscarOscuro() {
 				placeholder="Encontra tu producto ideal"
 				{...register("q")}
 			></Placeholder>
-			<BotonNaranja buscar> Buscar </BotonNaranja>
+			<BotonNaranja onClick={handleSubmit(onSubmit)} buscar> Buscar </BotonNaranja>
 		</RootOscuro>
 	);
 }
