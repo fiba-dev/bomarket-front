@@ -12,15 +12,17 @@ import { Card } from "ui/card";
 export function ShowCatalogue() {
 
 	const user = useMe();
-    const router = useRouter();
+	const router = useRouter();
 	const query = router.query;
-    const [ userCatalogue, setUserCatalogue ] = useState(null as any);
-    const [ phone, setPhone ] = useState(null as any);
+	const [userCatalogue, setUserCatalogue] = useState(null as any);
+	const [phone, setPhone] = useState(null as any);
+	const [photo, setPhoto] = useState(null as any);
 
 	const catalogueOfUser = async () => {
 		const catalogue = await getUserCatalogue((query.userId as string));
 		setUserCatalogue(catalogue);
 		setPhone(catalogue?.phone);
+		setPhoto(catalogue?.photo);
 	}
 
 	useEffect(() => {
@@ -78,11 +80,11 @@ export function ShowCatalogue() {
 		return (
 			<Root>
 				<Subtitle> {results} </Subtitle>{" "}
-				
-				{ user && userCatalogue?.results.length > 0 ? 
+
+				{user && userCatalogue?.results.length > 0 ?
 
 					<div style={{ display: "flex", flexDirection: "row", padding: "30px 15px" }}>
-						<ProfilePicture src={user?.photo["secure_url"]} />
+						<ProfilePicture src={photo} />
 
 						<div style={{ minWidth: 150, maxWidth: 400 }}>
 							<h5> {userCatalogue?.description} </h5>
@@ -91,7 +93,7 @@ export function ShowCatalogue() {
 					</div>
 					:
 					<ProfilePicture src="https://res.cloudinary.com/matitoledo/image/upload/v1656633326/de7834s-6515bd40-8b2c-4dc6-a843-5ac1a95a8b55.jpg_iwuwwy.jpg" />
-					}
+				}
 
 				<MostrarProductos>
 					{userCatalogue.results.map((r: any) => (
@@ -108,7 +110,7 @@ export function ShowCatalogue() {
 				</MostrarProductos>
 			</Root>
 		);
-	
+
 	} else {
 		return <SpinnerLoader />
 	}
